@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T23:34:41.480797+02:00",
+  "generated_at": "2026-08-23T23:35:23.169992+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
   "ticks": 1,
   "temoin": {
@@ -7,10 +7,10 @@
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 PUMP 10x",
     "kind": "temoin",
-    "equity": 74.06536550637841,
+    "equity": 70.82620496637837,
     "start": 50.0,
-    "pnl": 24.065365506378413,
-    "pnl_pct": 48.130731012756826,
+    "pnl": 20.82620496637837,
+    "pnl_pct": 41.65240993275674,
     "collateral": 72.74724639637842,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 77000.0,
       "entry": 0.00523,
-      "mark": 0.00524623143,
+      "mark": 0.00520498358,
       "leverage": 10.0,
       "liq": 0.0048116,
-      "u_pnl": 1.2498201099999524,
+      "u_pnl": -1.9262643400000121,
       "stop": 0.00488,
       "take_profit": 0.00564
     },
@@ -50,7 +50,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 74.07$ \u2014 PUMP MTM ~+1.1$ vs lock TRUMP"
+        "e": "Stack 70.83$ \u2014 PUMP MTM ~-2.1$ vs lock TRUMP"
       }
     ],
     "orders": [
@@ -91,6 +91,10 @@
       {
         "t": "2026-08-23T21:34:41Z",
         "eq": 74.0654
+      },
+      {
+        "t": "2026-08-23T21:35:23Z",
+        "eq": 70.8262
       }
     ]
   },
@@ -117,7 +121,38 @@
       "color": "#ff7a59",
       "hist": [
         {
-          "t": "2026-08-23T21:34:41Z",
+          "t": "2026-08-23T21:35:23Z",
+          "eq": 50.0
+        }
+      ]
+    },
+    {
+      "id": "basis_squeeze",
+      "name": "Basis squeeze",
+      "subtitle": "Ride le funding crowded, pas fade",
+      "kind": "livre",
+      "equity": 50.0,
+      "start": 50.0,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "high_water": 50.0,
+      "max_dd": 0.0,
+      "trades": 0,
+      "fees": 0,
+      "status": "active",
+      "last_reason": "reset: skipped PF_XBTUSD garbage funding",
+      "time_to_100": null,
+      "position": null,
+      "log": [],
+      "tag": "SQ",
+      "color": "#6ea8ff",
+      "hist": [
+        {
+          "t": "2026-08-23T21:18:54Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-23T21:35:23Z",
           "eq": 50.0
         }
       ]
@@ -176,67 +211,8 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:34:41Z",
+          "t": "2026-08-23T21:35:23Z",
           "eq": 49.48
-        }
-      ]
-    },
-    {
-      "id": "basis_squeeze",
-      "name": "Basis squeeze",
-      "subtitle": "Ride le funding crowded, pas fade",
-      "kind": "livre",
-      "equity": 49.285,
-      "start": 50.0,
-      "pnl": -0.7150000000000034,
-      "pnl_pct": -1.430000000000009,
-      "high_water": 50.0,
-      "max_dd": 1.43,
-      "trades": 0,
-      "fees": 0.7150000000000001,
-      "status": "active",
-      "last_reason": "squeeze_ride PF_XBTUSD fr=2.0881386504673074 chg=1.05",
-      "time_to_100": null,
-      "position": {
-        "symbol": "PF_XBTUSD",
-        "side": "long",
-        "size": 0.003525840471367504,
-        "entry": 77995.5877848724,
-        "mark": 77995.5877848724,
-        "leverage": 10,
-        "stop": 76945.62853843445,
-        "take_profit": null,
-        "margin": 27.500000000000004,
-        "notional": 275.00000000000006
-      },
-      "log": [
-        {
-          "ts": "2026-08-23T21:19:01Z",
-          "action": "open",
-          "symbol": "PF_XBTUSD",
-          "side": "long",
-          "size": 0.003525840471367504,
-          "price": 77995.5877848724,
-          "notional": 275.00000000000006,
-          "fee": 0.7150000000000001,
-          "pnl": 0.0,
-          "reason": "squeeze_ride PF_XBTUSD fr=2.0881386504673074 chg=1.05",
-          "equity_after": 49.285,
-          "stop": 76945.62853843445,
-          "take_profit": null,
-          "margin": 27.500000000000004
-        }
-      ],
-      "tag": "SQ",
-      "color": "#6ea8ff",
-      "hist": [
-        {
-          "t": "2026-08-23T21:18:54Z",
-          "eq": 50.0
-        },
-        {
-          "t": "2026-08-23T21:34:41Z",
-          "eq": 49.285
         }
       ]
     },
@@ -294,7 +270,7 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:34:41Z",
+          "t": "2026-08-23T21:35:23Z",
           "eq": 49.285
         }
       ]
@@ -353,7 +329,7 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:34:41Z",
+          "t": "2026-08-23T21:35:23Z",
           "eq": 49.22
         }
       ]
