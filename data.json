@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T23:36:18.458415+02:00",
+  "generated_at": "2026-08-23T23:41:12.076430+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
   "ticks": 1,
   "temoin": {
@@ -7,10 +7,10 @@
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 PUMP 10x",
     "kind": "temoin",
-    "equity": 70.54841437637837,
+    "equity": 72.5153408763784,
     "start": 50.0,
-    "pnl": 20.548414376378375,
-    "pnl_pct": 41.09682875275675,
+    "pnl": 22.515340876378403,
+    "pnl_pct": 45.0306817527568,
     "collateral": 72.74724639637842,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 77000.0,
       "entry": 0.00523,
-      "mark": 0.00520164479,
+      "mark": 0.00522698824,
       "leverage": 10.0,
       "liq": 0.0048116,
-      "u_pnl": -2.1833511699999923,
+      "u_pnl": -0.23190552000001888,
       "stop": 0.00488,
       "take_profit": 0.00564
     },
@@ -50,7 +50,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 70.55$ \u2014 PUMP MTM ~-2.4$ vs lock TRUMP"
+        "e": "Stack 72.52$ \u2014 PUMP MTM ~-0.4$ vs lock TRUMP"
       }
     ],
     "orders": [
@@ -59,6 +59,35 @@
     ],
     "tag": "T\u00c9",
     "color": "#f0c14b",
+    "fills": [
+      {
+        "t": "2026-08-22T15:25:00Z",
+        "kind": "open",
+        "side": "long",
+        "symbol": "PF_TRUMPUSD",
+        "eq": 50.0,
+        "price": 2.364,
+        "reason": "long TRUMP"
+      },
+      {
+        "t": "2026-08-23T07:40:00Z",
+        "kind": "close",
+        "side": "long",
+        "symbol": "PF_TRUMPUSD",
+        "eq": 72.94,
+        "price": 2.487,
+        "reason": "lock TRUMP +23"
+      },
+      {
+        "t": "2026-08-23T07:41:00Z",
+        "kind": "open",
+        "side": "long",
+        "symbol": "PF_PUMPUSD",
+        "eq": 72.77,
+        "price": 0.00523,
+        "reason": "long PUMP"
+      }
+    ],
     "hist": [
       {
         "t": "2026-08-22T15:25:00Z",
@@ -99,6 +128,10 @@
       {
         "t": "2026-08-23T21:36:18Z",
         "eq": 70.5484
+      },
+      {
+        "t": "2026-08-23T21:41:12Z",
+        "eq": 72.5153
       }
     ]
   },
@@ -125,10 +158,11 @@
       "color": "#ff7a59",
       "hist": [
         {
-          "t": "2026-08-23T21:36:18Z",
+          "t": "2026-08-23T21:41:12Z",
           "eq": 50.0
         }
-      ]
+      ],
+      "fills": []
     },
     {
       "id": "basis_squeeze",
@@ -156,10 +190,11 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:36:18Z",
+          "t": "2026-08-23T21:41:12Z",
           "eq": 50.0
         }
-      ]
+      ],
+      "fills": []
     },
     {
       "id": "antimart_residual",
@@ -215,8 +250,19 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:36:18Z",
+          "t": "2026-08-23T21:41:12Z",
           "eq": 49.48
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-23T21:19:01Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_WLDUSD",
+          "eq": 49.480000000000004,
+          "price": 0.41636518962,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.40"
         }
       ]
     },
@@ -274,8 +320,19 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:36:18Z",
+          "t": "2026-08-23T21:41:12Z",
           "eq": 49.285
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-23T21:19:01Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_WLDUSD",
+          "eq": 49.285,
+          "price": 0.41636518962,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55"
         }
       ]
     },
@@ -333,8 +390,19 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-23T21:36:18Z",
+          "t": "2026-08-23T21:41:12Z",
           "eq": 49.22
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-23T21:19:01Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_WLDUSD",
+          "eq": 49.22,
+          "price": 0.41636518962,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60"
         }
       ]
     }
