@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"/>
 <meta name="theme-color" content="#0a0b0e"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="mobile-web-app-capable" content="yes"/>
@@ -17,7 +17,8 @@
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--bg); color: var(--txt);
-    font: 15px/1.4 "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; }
+    font: 15px/1.4 "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    touch-action: pan-y; overscroll-behavior-x: none; }
   body { min-height: 100vh; }
   header { padding: 22px 28px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
   .brand { font-family: Syne, sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
@@ -29,7 +30,7 @@
   .subscore { text-align: right; color: var(--muted); font-size: 13px; }
   .subscore .d { font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--txt); margin-bottom: 4px; }
   .up { color: var(--green); } .dn { color: var(--red); }
-  .chart-box { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 8px 8px 4px; position: relative; }
+  .chart-box { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 8px 8px 4px; position: relative; touch-action: none; }
   .chart-stage { position: relative; }
   svg.race { width: 100%; height: auto; display: block; pointer-events: none; }
   .chart-hit { position: absolute; inset: 0; touch-action: none; cursor: crosshair; z-index: 2; }
@@ -68,11 +69,13 @@
   .story li em { color: var(--muted); font-style: normal; font-size: 12px; display: block; font-family: "IBM Plex Mono", monospace; }
   button.close { background: none; border: 1px solid var(--line); color: var(--txt); border-radius: 8px; padding: 6px 12px; cursor: pointer; float: right; }
 
-  .zoombar { display: flex; align-items: center; gap: 8px; padding: 6px 10px 2px; }
-  .zoombar button { background: #1b1e27; border: 1px solid var(--line); color: var(--txt); border-radius: 8px; width: 32px; height: 28px; cursor: pointer; font-family: "IBM Plex Mono", monospace; }
-  .zoombar button.wide { width: auto; padding: 0 10px; }
+  .zoombar { display: flex; align-items: center; gap: 6px; padding: 6px 10px 2px; flex-wrap: wrap; }
+  .zoombar button { background: #1b1e27; border: 1px solid var(--line); color: var(--txt); border-radius: 8px; height: 28px; padding: 0 10px; cursor: pointer; font-family: "IBM Plex Mono", monospace; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .zoombar button.sq { width: 32px; padding: 0; }
+  .zoombar button.on { border-color: var(--gold); color: var(--gold); }
   .zoombar button:hover { border-color: #4a5160; }
   .zoombar .hint { color: var(--muted); font-size: 11px; font-family: "IBM Plex Mono", monospace; margin-left: 6px; }
+  .zoombar .zlab { margin-left: auto; color: var(--gold); font-size: 12px; font-family: "IBM Plex Mono", monospace; }
   svg.race { cursor: crosshair; }
   .legend { color: var(--muted); font-size: 12px; margin-top: 16px; }
 
@@ -100,10 +103,11 @@
     svg.race { touch-action: none; }
     .mini { height: 128px; }
     .zoombar { padding: 8px 6px 6px; gap: 8px; flex-wrap: wrap; }
-    .zoombar button { width: 44px; height: 44px; font-size: 20px; border-radius: 10px; }
-    .zoombar button.wide { width: auto; min-width: 72px; padding: 0 14px; font-size: 14px; }
+    .zoombar button { min-height: 44px; min-width: 52px; font-size: 15px; border-radius: 10px; }
+    .zoombar button.sq { width: 44px; min-width: 44px; font-size: 22px; }
     .zoombar .hint { display: none; }
-    .zoombar .hint-m { display: inline; margin-left: 0; width: 100%; }
+    .zoombar .hint-m { display: none; }
+    .zoombar .zlab { width: 100%; margin: 0; font-size: 13px; }
     .rail { grid-template-columns: 36px 1fr 68px; gap: 8px; min-height: 44px; }
     .rail .tag { width: 32px; height: 32px; font-size: 11px; }
     .rail .usd { font-size: 13px; }
@@ -143,11 +147,14 @@
   </div>
   <div class="chart-box" id="chartbox">
     <div class="zoombar">
-      <button type="button" id="zin">+</button>
-      <button type="button" id="zout">−</button>
-      <button type="button" class="wide" id="zreset">tout</button>
-      <span class="hint">molette : zoom · glisser : déplacer · taper un △/□ : fiche</span>
-      <span class="hint hint-m">pincer / boutons + − · double-tap zoom · taper un △/□</span>
+      <button type="button" class="sq" id="zin" aria-label="zoomer">+</button>
+      <button type="button" class="sq" id="zout" aria-label="dézoomer">−</button>
+      <button type="button" data-win="6">6h</button>
+      <button type="button" data-win="24">24h</button>
+      <button type="button" data-win="72">3j</button>
+      <button type="button" id="zreset">tout</button>
+      <span class="zlab" id="zlab"></span>
+      <span class="hint">molette · glisser · taper un △/□</span>
     </div>
     <div class="chart-stage">
       <svg class="race" id="race" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet"></svg>
@@ -162,7 +169,7 @@
 </div>
 <div id="panel"><div class="sheet" id="sheet"></div></div>
 <script>
-const DATA = {"generated_at": "2026-08-24T23:58:02.299640+02:00", "deadline": "2026-09-22T23:59:59+02:00", "ticks": 12, "temoin": {"id": "temoin", "name": "T\u00e9moin", "subtitle": "Vrai paper Kraken \u2014 XBT 10x", "kind": "temoin", "equity": 41.555003217622385, "start": 50.0, "pnl": -8.444996782377615, "pnl_pct": -16.889993564755233, "collateral": 41.60171085709445, "high_water": 83.16, "lock_trump": 72.94, "position": {"symbol": "PF_XBTUSD", "side": "long", "size": 0.0034, "entry": 78977.0, "mark": 78963.35262291566, "leverage": 10.0, "liq": 72658.84, "u_pnl": -0.04640108208676975, "stop": 74238, "take_profit": 83716}, "status": "active", "story": [{"t": "22 ao\u00fbt 17:25", "e": "Long TRUMP 190 @ 2.364, stack 50$"}, {"t": "22 ao\u00fbt soir", "e": "Pic ~90$ puis dump ~28$"}, {"t": "23 ao\u00fbt 09:40", "e": "Lock TRUMP @ 2.487 \u2192 +23$, stack 73$"}, {"t": "23 ao\u00fbt 09:41", "e": "Long PUMP 77k @ 0.00523"}, {"t": "23 ao\u00fbt 15:34", "e": "Pic session ~83$"}, {"t": "24 ao\u00fbt 10:36", "e": "PUMP stop @ 0.00483 \u2192 stack ~41.74$"}, {"t": "24 ao\u00fbt 20:34", "e": "Long XBT 0.0034 @ 78977, 10x"}, {"t": "maintenant", "e": "Stack 41.56$ \u2014 long XBT @ 78977.0"}], "orders": ["TP 83716", "SL 74238"], "tag": "T\u00c9", "color": "#f0c14b", "fills": [{"t": "2026-08-22T15:25:00Z", "kind": "open", "side": "long", "symbol": "PF_TRUMPUSD", "eq": 50.0, "price": 2.364, "reason": "long TRUMP"}, {"t": "2026-08-23T07:40:00Z", "kind": "close", "side": "long", "symbol": "PF_TRUMPUSD", "eq": 72.94, "price": 2.487, "reason": "lock TRUMP +23"}, {"t": "2026-08-23T07:41:00Z", "kind": "open", "side": "long", "symbol": "PF_PUMPUSD", "eq": 72.77, "price": 0.00523, "reason": "long PUMP"}, {"t": "2026-08-24T08:36:37Z", "kind": "close", "side": "long", "symbol": "PF_PUMPUSD", "eq": 41.74, "price": 0.00483, "reason": "PUMP stop"}, {"t": "2026-08-24T18:34:23Z", "kind": "open", "side": "long", "symbol": "PF_XBTUSD", "eq": 41.6, "price": 78977.0, "reason": "long XBT R2"}], "hist": [{"t": "2026-08-22T15:25:00Z", "eq": 50.0}, {"t": "2026-08-22T21:00:00Z", "eq": 90.0}, {"t": "2026-08-22T21:34:00Z", "eq": 57.0}, {"t": "2026-08-22T21:50:00Z", "eq": 28.0}, {"t": "2026-08-22T22:00:00Z", "eq": 34.21}, {"t": "2026-08-23T07:40:00Z", "eq": 72.94}, {"t": "2026-08-23T13:34:00Z", "eq": 83.16}, {"t": "2026-08-23T21:34:41Z", "eq": 74.0654}, {"t": "2026-08-23T21:35:23Z", "eq": 70.8262}, {"t": "2026-08-23T21:36:18Z", "eq": 70.5484}, {"t": "2026-08-23T21:41:12Z", "eq": 72.5153}, {"t": "2026-08-23T22:02:11Z", "eq": 76.9974}, {"t": "2026-08-23T22:35:34Z", "eq": 84.1577}, {"t": "2026-08-23T23:05:28Z", "eq": 80.2356}, {"t": "2026-08-23T23:32:25Z", "eq": 76.9601}, {"t": "2026-08-24T00:04:02Z", "eq": 72.7503}, {"t": "2026-08-24T00:34:51Z", "eq": 66.6363}, {"t": "2026-08-24T01:04:31Z", "eq": 63.8707}, {"t": "2026-08-24T01:33:30Z", "eq": 54.527}, {"t": "2026-08-24T02:02:16Z", "eq": 51.4588}, {"t": "2026-08-24T02:34:27Z", "eq": 58.3373}, {"t": "2026-08-24T03:05:34Z", "eq": 56.1586}, {"t": "2026-08-24T03:30:55Z", "eq": 55.8738}, {"t": "2026-08-24T04:02:58Z", "eq": 57.3903}, {"t": "2026-08-24T04:36:05Z", "eq": 56.5996}, {"t": "2026-08-24T05:00:18Z", "eq": 56.2654}, {"t": "2026-08-24T05:36:28Z", "eq": 51.2697}, {"t": "2026-08-24T06:06:14Z", "eq": 56.2521}, {"t": "2026-08-24T06:37:07Z", "eq": 55.58}, {"t": "2026-08-24T07:05:24Z", "eq": 56.8711}, {"t": "2026-08-24T07:33:42Z", "eq": 55.7056}, {"t": "2026-08-24T08:04:46Z", "eq": 48.6068}, {"t": "2026-08-24T08:41:08Z", "eq": 41.736}, {"t": "2026-08-24T09:31:46Z", "eq": 41.736}, {"t": "2026-08-24T10:34:57Z", "eq": 41.736}, {"t": "2026-08-24T11:35:40Z", "eq": 41.736}, {"t": "2026-08-24T12:35:02Z", "eq": 41.736}, {"t": "2026-08-24T13:34:52Z", "eq": 41.736}, {"t": "2026-08-24T15:07:30Z", "eq": 41.736}, {"t": "2026-08-24T16:34:25Z", "eq": 41.736}, {"t": "2026-08-24T17:36:08Z", "eq": 41.736}, {"t": "2026-08-24T18:06:22Z", "eq": 41.736}, {"t": "2026-08-24T18:34:42Z", "eq": 41.561}, {"t": "2026-08-24T18:35:58Z", "eq": 41.4667}, {"t": "2026-08-24T18:36:01Z", "eq": 41.4177}, {"t": "2026-08-24T20:32:19Z", "eq": 40.4626}, {"t": "2026-08-24T20:50:27Z", "eq": 41.0883}, {"t": "2026-08-24T21:05:07Z", "eq": 41.6524}, {"t": "2026-08-24T21:33:18Z", "eq": 41.4427}, {"t": "2026-08-24T21:58:02Z", "eq": 41.555}]}, "livres": [{"id": "wick_fade", "name": "Wick fade", "subtitle": "Fade la m\u00e8che de liq, stop derri\u00e8re", "kind": "livre", "equity": 50.0, "start": 50.0, "pnl": 0.0, "pnl_pct": 0.0, "high_water": 50.0, "max_dd": 0.0, "trades": 0, "fees": 0, "status": "active", "last_reason": "", "time_to_100": null, "position": null, "log": [], "tag": "WK", "color": "#ff7a59", "hist": [{"t": "2026-08-24T15:07:18Z", "eq": 50.0}, {"t": "2026-08-24T16:34:02Z", "eq": 50.0}, {"t": "2026-08-24T17:05:25Z", "eq": 50.0}, {"t": "2026-08-24T17:28:14Z", "eq": 50.0}, {"t": "2026-08-24T17:35:57Z", "eq": 50.0}, {"t": "2026-08-24T18:06:17Z", "eq": 50.0}, {"t": "2026-08-24T18:34:35Z", "eq": 50.0}, {"t": "2026-08-24T20:32:11Z", "eq": 50.0}, {"t": "2026-08-24T20:50:20Z", "eq": 50.0}, {"t": "2026-08-24T21:04:56Z", "eq": 50.0}, {"t": "2026-08-24T21:58:02Z", "eq": 50.0}], "fills": []}, {"id": "antimart_residual", "name": "Anti-martingale", "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins", "kind": "livre", "equity": 44.49105063, "start": 50.0, "pnl": -5.508949370000003, "pnl_pct": -11.01789874000001, "high_water": 50.0, "max_dd": 18.680906, "trades": 1, "fees": 1.6478257254126771, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 303.43587500818234, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 23.92528403847235, "notional": 239.25284038472347}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 480.34755302798504, "price": 0.41636518962, "notional": 200.0, "fee": 0.52, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.40", "equity_after": 49.480000000000004, "stop": 0.3944601792256735, "take_profit": null, "margin": 20.0}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 480.34755302798504, "price": 0.40496986723, "notional": 194.5262847739985, "fee": 0.505768340412396, "pnl": -5.473715226001519, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 43.500516433586085}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 303.43587500818234, "price": 0.7884790827, "notional": 239.25284038472347, "fee": 0.622057385000281, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 42.8784590485858, "stop": 0.741170337738, "take_profit": null, "margin": 23.92528403847235}], "tag": "AM", "color": "#ff8cc8", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 44.957}, {"t": "2026-08-24T16:34:02Z", "eq": 44.477}, {"t": "2026-08-24T17:05:25Z", "eq": 43.5555}, {"t": "2026-08-24T17:28:14Z", "eq": 41.7326}, {"t": "2026-08-24T17:35:57Z", "eq": 40.6595}, {"t": "2026-08-24T18:06:17Z", "eq": 45.6718}, {"t": "2026-08-24T18:34:35Z", "eq": 43.6188}, {"t": "2026-08-24T20:32:11Z", "eq": 41.1201}, {"t": "2026-08-24T20:50:20Z", "eq": 42.8785}, {"t": "2026-08-24T21:04:56Z", "eq": 43.2761}, {"t": "2026-08-24T21:58:02Z", "eq": 44.4911}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.480000000000004, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.40"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 43.500516433586085, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 42.8784590485858, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "residual_gated", "name": "Residual + gate BTC", "subtitle": "M\u00eame residual, cash si BTC 4h casse", "kind": "livre", "equity": 42.08324849, "start": 50.0, "pnl": -7.916751509999997, "pnl_pct": -15.833503019999995, "high_water": 50.0, "max_dd": 25.686246, "trades": 1, "fees": 2.051017545567466, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 312.47406048287957, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 24.63792605770852, "notional": 246.37926057708518}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 660.4778854134795, "price": 0.41636518962, "notional": 275.00000000000006, "fee": 0.7150000000000001, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55", "equity_after": 49.285, "stop": 0.3944601792256735, "take_profit": null, "margin": 27.500000000000004}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 660.4778854134795, "price": 0.40496986723, "notional": 267.47364156424794, "fee": 0.6954314680670446, "pnl": -7.526358435752089, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 41.06321009618087}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 312.47406048287957, "price": 0.7884790827, "notional": 246.37926057708518, "fee": 0.6405860775004214, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 40.422624018680445, "stop": 0.741170337738, "take_profit": null, "margin": 24.63792605770852}], "tag": "GT", "color": "#c084fc", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 43.0658}, {"t": "2026-08-24T16:34:02Z", "eq": 42.4059}, {"t": "2026-08-24T17:05:25Z", "eq": 41.1388}, {"t": "2026-08-24T17:28:14Z", "eq": 38.6323}, {"t": "2026-08-24T17:35:57Z", "eq": 37.1569}, {"t": "2026-08-24T18:06:17Z", "eq": 44.0487}, {"t": "2026-08-24T18:34:35Z", "eq": 41.2258}, {"t": "2026-08-24T20:32:11Z", "eq": 37.7901}, {"t": "2026-08-24T20:50:20Z", "eq": 40.4226}, {"t": "2026-08-24T21:04:56Z", "eq": 40.8321}, {"t": "2026-08-24T21:58:02Z", "eq": 42.0832}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.285, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 41.06321009618087, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 40.422624018680445, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "residual_hold", "name": "Residual hold", "subtitle": "24h moins BTC, trail ATR, on ne coupe pas", "kind": "livre", "equity": 41.333953, "start": 50.0, "pnl": -8.666046999999999, "pnl_pct": -17.332093999999998, "high_water": 50.0, "max_dd": 28.021359, "trades": 1, "fees": 2.218890602210001, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 331.81607599729966, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 26.163003522746433, "notional": 261.6300352274643}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 720.5213295419776, "price": 0.41636518962, "notional": 300.0, "fee": 0.7799999999999999, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60", "equity_after": 49.22, "stop": 0.3944601792256735, "take_profit": null, "margin": 30.0}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 720.5213295419776, "price": 0.40496986723, "notional": 291.7894271609977, "fee": 0.7586525106185941, "pnl": -8.210572839002278, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 40.25077465037913}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 331.81607599729966, "price": 0.7884790827, "notional": 261.6300352274643, "fee": 0.6802380915914071, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 39.57053655878772, "stop": 0.741170337738, "take_profit": null, "margin": 26.163003522746433}], "tag": "RH", "color": "#3ee0b0", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 42.4355}, {"t": "2026-08-24T16:34:02Z", "eq": 41.7155}, {"t": "2026-08-24T17:05:25Z", "eq": 40.3332}, {"t": "2026-08-24T17:28:14Z", "eq": 37.5989}, {"t": "2026-08-24T17:35:57Z", "eq": 35.9893}, {"t": "2026-08-24T18:06:17Z", "eq": 43.5077}, {"t": "2026-08-24T18:34:35Z", "eq": 40.4282}, {"t": "2026-08-24T20:32:11Z", "eq": 36.6801}, {"t": "2026-08-24T20:50:20Z", "eq": 39.5705}, {"t": "2026-08-24T21:04:56Z", "eq": 40.0054}, {"t": "2026-08-24T21:58:02Z", "eq": 41.334}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.22, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 40.25077465037913, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 39.57053655878772, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "basis_squeeze", "name": "Basis squeeze", "subtitle": "Ride le funding crowded, pas fade", "kind": "livre", "equity": 33.96596833, "start": 50.0, "pnl": -16.034031669999997, "pnl_pct": -32.068063339999995, "high_water": 50.0, "max_dd": 32.068063, "trades": 4, "fees": 5.399208460656602, "status": "active", "last_reason": "squeeze_over", "time_to_100": null, "position": null, "log": [{"ts": "2026-08-24T15:07:18Z", "action": "open", "symbol": "PF_ZECUSD", "side": "long", "size": 0.3192481330546486, "price": 861.39892931786, "notional": 275.00000000000006, "fee": 0.7150000000000001, "pnl": 0.0, "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92", "equity_after": 49.285, "stop": 809.7149935587885, "take_profit": null, "margin": 27.500000000000004}, {"ts": "2026-08-24T16:34:02Z", "action": "close", "symbol": "PF_ZECUSD", "side": "long", "size": 0.3192481330546486, "price": 843.37758353577, "notional": 269.24671900393554, "fee": 0.7000414694102324, "pnl": -5.75328099606452, "reason": "squeeze_over", "equity_after": 42.83167753452524}, {"ts": "2026-08-24T17:28:14Z", "action": "open", "symbol": "PF_LTCUSD", "side": "long", "size": 5.342089413540141, "price": 52.1155455146, "notional": 278.40590397441406, "fee": 0.7238553503334765, "pnl": 0.0, "reason": "squeeze_ride PF_LTCUSD fr=0.001601437931654184 chg=-0.46", "equity_after": 42.10782218419176, "stop": 50.1950245576567, "take_profit": null, "margin": 27.840590397441407}, {"ts": "2026-08-24T17:35:57Z", "action": "close", "symbol": "PF_LTCUSD", "side": "long", "size": 5.342089413540141, "price": 51.65381672191, "notional": 275.93930747905813, "fee": 0.7174421994455511, "pnl": -2.4665964953559376, "reason": "squeeze_over", "equity_after": 38.923783489390274}, {"ts": "2026-08-24T18:06:17Z", "action": "open", "symbol": "PF_LINKUSD", "side": "long", "size": 21.877965134793264, "price": 11.56435669964, "notional": 253.0045926810368, "fee": 0.6578119409706956, "pnl": 0.0, "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58", "equity_after": 38.26597154841958, "stop": 11.133930069440414, "take_profit": null, "margin": 25.30045926810368}, {"ts": "2026-08-24T20:32:11Z", "action": "close", "symbol": "PF_LINKUSD", "side": "long", "size": 21.877965134793264, "price": 11.51333474264, "notional": 251.8883360846819, "fee": 0.6549096738201728, "pnl": -1.116256596354914, "reason": "squeeze_over", "equity_after": 36.49480527824449}, {"ts": "2026-08-24T21:04:56Z", "action": "open", "symbol": "PF_TAOUSD", "side": "long", "size": 0.9755773508526162, "price": 243.15471664166, "notional": 237.2162343085892, "fee": 0.6167622092023319, "pnl": 0.0, "reason": "squeeze_ride PF_TAOUSD fr=0.0036130586827875 chg=-0.42", "equity_after": 35.878043069042164, "stop": 230.22539225390267, "take_profit": null, "margin": 23.72162343085892}, {"ts": "2026-08-24T21:33:09Z", "action": "close", "symbol": "PF_TAOUSD", "side": "long", "size": 0.9755773508526162, "price": 241.82351607095, "notional": 235.91754518236246, "fee": 0.6133856174741423, "pnl": -1.2986891262267484, "reason": "squeeze_over", "equity_after": 33.965968325341265}], "tag": "SQ", "color": "#6ea8ff", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-23T21:35:18Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 49.285}, {"t": "2026-08-24T16:34:02Z", "eq": 42.8317}, {"t": "2026-08-24T17:05:25Z", "eq": 42.8317}, {"t": "2026-08-24T17:28:14Z", "eq": 42.1078}, {"t": "2026-08-24T17:35:57Z", "eq": 38.9238}, {"t": "2026-08-24T18:06:17Z", "eq": 38.266}, {"t": "2026-08-24T18:34:35Z", "eq": 38.8832}, {"t": "2026-08-24T20:32:11Z", "eq": 36.4948}, {"t": "2026-08-24T20:50:20Z", "eq": 36.4948}, {"t": "2026-08-24T21:04:56Z", "eq": 35.878}, {"t": "2026-08-24T21:58:02Z", "eq": 33.966}], "fills": [{"t": "2026-08-24T15:07:18Z", "kind": "open", "side": "long", "symbol": "PF_ZECUSD", "eq": 49.285, "price": 861.39892931786, "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92"}, {"t": "2026-08-24T16:34:02Z", "kind": "close", "side": "long", "symbol": "PF_ZECUSD", "eq": 42.83167753452524, "price": 843.37758353577, "reason": "squeeze_over"}, {"t": "2026-08-24T17:28:14Z", "kind": "open", "side": "long", "symbol": "PF_LTCUSD", "eq": 42.10782218419176, "price": 52.1155455146, "reason": "squeeze_ride PF_LTCUSD fr=0.001601437931654184 chg=-0.46"}, {"t": "2026-08-24T17:35:57Z", "kind": "close", "side": "long", "symbol": "PF_LTCUSD", "eq": 38.923783489390274, "price": 51.65381672191, "reason": "squeeze_over"}, {"t": "2026-08-24T18:06:17Z", "kind": "open", "side": "long", "symbol": "PF_LINKUSD", "eq": 38.26597154841958, "price": 11.56435669964, "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58"}, {"t": "2026-08-24T20:32:11Z", "kind": "close", "side": "long", "symbol": "PF_LINKUSD", "eq": 36.49480527824449, "price": 11.51333474264, "reason": "squeeze_over"}, {"t": "2026-08-24T21:04:56Z", "kind": "open", "side": "long", "symbol": "PF_TAOUSD", "eq": 35.878043069042164, "price": 243.15471664166, "reason": "squeeze_ride PF_TAOUSD fr=0.0036130586827875 chg=-0.42"}, {"t": "2026-08-24T21:33:09Z", "kind": "close", "side": "long", "symbol": "PF_TAOUSD", "eq": 33.965968325341265, "price": 241.82351607095, "reason": "squeeze_over"}]}], "passage": [{"date": "2026-08-26", "label": "26 ao\u00fbt J+3", "target": 67}, {"date": "2026-08-30", "label": "30 ao\u00fbt J+7", "target": 100}, {"date": "2026-09-02", "label": "2 sept J+10", "target": 136}, {"date": "2026-09-06", "label": "6 sept J+14", "target": 200}, {"date": "2026-09-13", "label": "13 sept J+21", "target": 405}, {"date": "2026-09-22", "label": "22 sept J+30", "target": 1000}], "ghost": [{"t": "2026-08-22T22:00:00Z", "eq": 50.0}, {"t": "2026-08-23T10:00:00Z", "eq": 52.56}, {"t": "2026-08-23T22:00:00Z", "eq": 55.25}, {"t": "2026-08-24T10:00:00Z", "eq": 58.08}, {"t": "2026-08-24T22:00:00Z", "eq": 61.05}, {"t": "2026-08-25T10:00:00Z", "eq": 64.18}, {"t": "2026-08-25T22:00:00Z", "eq": 67.46}, {"t": "2026-08-26T10:00:00Z", "eq": 70.91}, {"t": "2026-08-26T22:00:00Z", "eq": 74.55}, {"t": "2026-08-27T10:00:00Z", "eq": 78.36}, {"t": "2026-08-27T22:00:00Z", "eq": 82.37}, {"t": "2026-08-28T10:00:00Z", "eq": 86.59}, {"t": "2026-08-28T22:00:00Z", "eq": 91.02}, {"t": "2026-08-29T10:00:00Z", "eq": 95.68}, {"t": "2026-08-29T22:00:00Z", "eq": 100.58}, {"t": "2026-08-30T10:00:00Z", "eq": 105.73}, {"t": "2026-08-30T22:00:00Z", "eq": 111.14}, {"t": "2026-08-31T10:00:00Z", "eq": 116.83}, {"t": "2026-08-31T22:00:00Z", "eq": 122.81}, {"t": "2026-09-01T10:00:00Z", "eq": 129.1}, {"t": "2026-09-01T22:00:00Z", "eq": 135.7}, {"t": "2026-09-02T10:00:00Z", "eq": 142.65}, {"t": "2026-09-02T22:00:00Z", "eq": 149.95}, {"t": "2026-09-03T10:00:00Z", "eq": 157.63}, {"t": "2026-09-03T22:00:00Z", "eq": 165.7}, {"t": "2026-09-04T10:00:00Z", "eq": 174.18}, {"t": "2026-09-04T22:00:00Z", "eq": 183.1}, {"t": "2026-09-05T10:00:00Z", "eq": 192.47}, {"t": "2026-09-05T22:00:00Z", "eq": 202.32}, {"t": "2026-09-06T10:00:00Z", "eq": 212.68}, {"t": "2026-09-06T22:00:00Z", "eq": 223.57}, {"t": "2026-09-07T10:00:00Z", "eq": 235.01}, {"t": "2026-09-07T22:00:00Z", "eq": 247.04}, {"t": "2026-09-08T10:00:00Z", "eq": 259.69}, {"t": "2026-09-08T22:00:00Z", "eq": 272.98}, {"t": "2026-09-09T10:00:00Z", "eq": 286.95}, {"t": "2026-09-09T22:00:00Z", "eq": 301.64}, {"t": "2026-09-10T10:00:00Z", "eq": 317.08}, {"t": "2026-09-10T22:00:00Z", "eq": 333.31}, {"t": "2026-09-11T10:00:00Z", "eq": 350.38}, {"t": "2026-09-11T22:00:00Z", "eq": 368.31}, {"t": "2026-09-12T10:00:00Z", "eq": 387.17}, {"t": "2026-09-12T22:00:00Z", "eq": 406.98}, {"t": "2026-09-13T10:00:00Z", "eq": 427.82}, {"t": "2026-09-13T22:00:00Z", "eq": 449.72}, {"t": "2026-09-14T10:00:00Z", "eq": 472.74}, {"t": "2026-09-14T22:00:00Z", "eq": 496.94}, {"t": "2026-09-15T10:00:00Z", "eq": 522.38}, {"t": "2026-09-15T22:00:00Z", "eq": 549.12}, {"t": "2026-09-16T10:00:00Z", "eq": 577.23}, {"t": "2026-09-16T22:00:00Z", "eq": 606.77}, {"t": "2026-09-17T10:00:00Z", "eq": 637.83}, {"t": "2026-09-17T22:00:00Z", "eq": 670.49}, {"t": "2026-09-18T10:00:00Z", "eq": 704.81}, {"t": "2026-09-18T22:00:00Z", "eq": 740.89}, {"t": "2026-09-19T10:00:00Z", "eq": 778.81}, {"t": "2026-09-19T22:00:00Z", "eq": 818.68}, {"t": "2026-09-20T10:00:00Z", "eq": 860.59}, {"t": "2026-09-20T22:00:00Z", "eq": 904.64}, {"t": "2026-09-21T10:00:00Z", "eq": 950.95}, {"t": "2026-09-21T22:00:00Z", "eq": 999.63}, {"t": "2026-09-22T10:00:00Z", "eq": 1000.0}, {"t": "2026-09-22T21:59:00Z", "eq": 1000.0}], "racers": [{"id": "temoin", "tag": "T\u00c9", "color": "#f0c14b"}, {"id": "residual_hold", "tag": "RH", "color": "#3ee0b0"}, {"id": "wick_fade", "tag": "WK", "color": "#ff7a59"}, {"id": "basis_squeeze", "tag": "SQ", "color": "#6ea8ff"}, {"id": "residual_gated", "tag": "GT", "color": "#c084fc"}, {"id": "antimart_residual", "tag": "AM", "color": "#ff8cc8"}], "note": "T\u00e9moin = vrai paper Kraken. 5 livres = simu prix live, frais 0.26%, pas de slippage. 0$ r\u00e9el."};
+const DATA = {"generated_at": "2026-08-25T00:01:06.092321+02:00", "deadline": "2026-09-22T23:59:59+02:00", "ticks": 12, "temoin": {"id": "temoin", "name": "T\u00e9moin", "subtitle": "Vrai paper Kraken \u2014 XBT 10x", "kind": "temoin", "equity": 41.20954175120001, "start": 50.0, "pnl": -8.790458248799993, "pnl_pct": -17.580916497599986, "collateral": 41.60171085709445, "high_water": 83.16, "lock_trump": 72.94, "position": {"symbol": "PF_XBTUSD", "side": "long", "size": 0.0034, "entry": 78977.0, "mark": 78864.0438133687, "leverage": 10.0, "liq": 72658.84, "u_pnl": -0.3840510345464252, "stop": 74238, "take_profit": 83716}, "status": "active", "story": [{"t": "22 ao\u00fbt 17:25", "e": "Long TRUMP 190 @ 2.364, stack 50$"}, {"t": "22 ao\u00fbt soir", "e": "Pic ~90$ puis dump ~28$"}, {"t": "23 ao\u00fbt 09:40", "e": "Lock TRUMP @ 2.487 \u2192 +23$, stack 73$"}, {"t": "23 ao\u00fbt 09:41", "e": "Long PUMP 77k @ 0.00523"}, {"t": "23 ao\u00fbt 15:34", "e": "Pic session ~83$"}, {"t": "24 ao\u00fbt 10:36", "e": "PUMP stop @ 0.00483 \u2192 stack ~41.74$"}, {"t": "24 ao\u00fbt 20:34", "e": "Long XBT 0.0034 @ 78977, 10x"}, {"t": "maintenant", "e": "Stack 41.21$ \u2014 long XBT @ 78977.0"}], "orders": ["TP 83716", "SL 74238"], "tag": "T\u00c9", "color": "#f0c14b", "fills": [{"t": "2026-08-22T15:25:00Z", "kind": "open", "side": "long", "symbol": "PF_TRUMPUSD", "eq": 50.0, "price": 2.364, "reason": "long TRUMP"}, {"t": "2026-08-23T07:40:00Z", "kind": "close", "side": "long", "symbol": "PF_TRUMPUSD", "eq": 72.94, "price": 2.487, "reason": "lock TRUMP +23"}, {"t": "2026-08-23T07:41:00Z", "kind": "open", "side": "long", "symbol": "PF_PUMPUSD", "eq": 72.77, "price": 0.00523, "reason": "long PUMP"}, {"t": "2026-08-24T08:36:37Z", "kind": "close", "side": "long", "symbol": "PF_PUMPUSD", "eq": 41.74, "price": 0.00483, "reason": "PUMP stop"}, {"t": "2026-08-24T18:34:23Z", "kind": "open", "side": "long", "symbol": "PF_XBTUSD", "eq": 41.6, "price": 78977.0, "reason": "long XBT R2"}], "hist": [{"t": "2026-08-22T15:25:00Z", "eq": 50.0}, {"t": "2026-08-22T21:00:00Z", "eq": 90.0}, {"t": "2026-08-22T21:34:00Z", "eq": 57.0}, {"t": "2026-08-22T21:50:00Z", "eq": 28.0}, {"t": "2026-08-22T22:00:00Z", "eq": 34.21}, {"t": "2026-08-23T07:40:00Z", "eq": 72.94}, {"t": "2026-08-23T13:34:00Z", "eq": 83.16}, {"t": "2026-08-23T21:34:41Z", "eq": 74.0654}, {"t": "2026-08-23T21:35:23Z", "eq": 70.8262}, {"t": "2026-08-23T21:36:18Z", "eq": 70.5484}, {"t": "2026-08-23T21:41:12Z", "eq": 72.5153}, {"t": "2026-08-23T22:02:11Z", "eq": 76.9974}, {"t": "2026-08-23T22:35:34Z", "eq": 84.1577}, {"t": "2026-08-23T23:05:28Z", "eq": 80.2356}, {"t": "2026-08-23T23:32:25Z", "eq": 76.9601}, {"t": "2026-08-24T00:04:02Z", "eq": 72.7503}, {"t": "2026-08-24T00:34:51Z", "eq": 66.6363}, {"t": "2026-08-24T01:04:31Z", "eq": 63.8707}, {"t": "2026-08-24T01:33:30Z", "eq": 54.527}, {"t": "2026-08-24T02:02:16Z", "eq": 51.4588}, {"t": "2026-08-24T02:34:27Z", "eq": 58.3373}, {"t": "2026-08-24T03:05:34Z", "eq": 56.1586}, {"t": "2026-08-24T03:30:55Z", "eq": 55.8738}, {"t": "2026-08-24T04:02:58Z", "eq": 57.3903}, {"t": "2026-08-24T04:36:05Z", "eq": 56.5996}, {"t": "2026-08-24T05:00:18Z", "eq": 56.2654}, {"t": "2026-08-24T05:36:28Z", "eq": 51.2697}, {"t": "2026-08-24T06:06:14Z", "eq": 56.2521}, {"t": "2026-08-24T06:37:07Z", "eq": 55.58}, {"t": "2026-08-24T07:05:24Z", "eq": 56.8711}, {"t": "2026-08-24T07:33:42Z", "eq": 55.7056}, {"t": "2026-08-24T08:04:46Z", "eq": 48.6068}, {"t": "2026-08-24T08:41:08Z", "eq": 41.736}, {"t": "2026-08-24T09:31:46Z", "eq": 41.736}, {"t": "2026-08-24T10:34:57Z", "eq": 41.736}, {"t": "2026-08-24T11:35:40Z", "eq": 41.736}, {"t": "2026-08-24T12:35:02Z", "eq": 41.736}, {"t": "2026-08-24T13:34:52Z", "eq": 41.736}, {"t": "2026-08-24T15:07:30Z", "eq": 41.736}, {"t": "2026-08-24T16:34:25Z", "eq": 41.736}, {"t": "2026-08-24T17:36:08Z", "eq": 41.736}, {"t": "2026-08-24T18:06:22Z", "eq": 41.736}, {"t": "2026-08-24T18:34:42Z", "eq": 41.561}, {"t": "2026-08-24T18:35:58Z", "eq": 41.4667}, {"t": "2026-08-24T18:36:01Z", "eq": 41.4177}, {"t": "2026-08-24T20:32:19Z", "eq": 40.4626}, {"t": "2026-08-24T20:50:27Z", "eq": 41.0883}, {"t": "2026-08-24T21:05:07Z", "eq": 41.6524}, {"t": "2026-08-24T21:33:18Z", "eq": 41.4427}, {"t": "2026-08-24T21:58:02Z", "eq": 41.555}, {"t": "2026-08-24T22:01:06Z", "eq": 41.2095}]}, "livres": [{"id": "wick_fade", "name": "Wick fade", "subtitle": "Fade la m\u00e8che de liq, stop derri\u00e8re", "kind": "livre", "equity": 50.0, "start": 50.0, "pnl": 0.0, "pnl_pct": 0.0, "high_water": 50.0, "max_dd": 0.0, "trades": 0, "fees": 0, "status": "active", "last_reason": "", "time_to_100": null, "position": null, "log": [], "tag": "WK", "color": "#ff7a59", "hist": [{"t": "2026-08-24T15:07:18Z", "eq": 50.0}, {"t": "2026-08-24T16:34:02Z", "eq": 50.0}, {"t": "2026-08-24T17:05:25Z", "eq": 50.0}, {"t": "2026-08-24T17:28:14Z", "eq": 50.0}, {"t": "2026-08-24T17:35:57Z", "eq": 50.0}, {"t": "2026-08-24T18:06:17Z", "eq": 50.0}, {"t": "2026-08-24T18:34:35Z", "eq": 50.0}, {"t": "2026-08-24T20:32:11Z", "eq": 50.0}, {"t": "2026-08-24T20:50:20Z", "eq": 50.0}, {"t": "2026-08-24T21:04:56Z", "eq": 50.0}, {"t": "2026-08-24T21:33:09Z", "eq": 50.0}, {"t": "2026-08-24T22:01:06Z", "eq": 50.0}], "fills": []}, {"id": "antimart_residual", "name": "Anti-martingale", "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins", "kind": "livre", "equity": 44.49105063, "start": 50.0, "pnl": -5.508949370000003, "pnl_pct": -11.01789874000001, "high_water": 50.0, "max_dd": 18.680906, "trades": 1, "fees": 1.6478257254126771, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 303.43587500818234, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 23.92528403847235, "notional": 239.25284038472347}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 480.34755302798504, "price": 0.41636518962, "notional": 200.0, "fee": 0.52, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.40", "equity_after": 49.480000000000004, "stop": 0.3944601792256735, "take_profit": null, "margin": 20.0}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 480.34755302798504, "price": 0.40496986723, "notional": 194.5262847739985, "fee": 0.505768340412396, "pnl": -5.473715226001519, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 43.500516433586085}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 303.43587500818234, "price": 0.7884790827, "notional": 239.25284038472347, "fee": 0.622057385000281, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 42.8784590485858, "stop": 0.741170337738, "take_profit": null, "margin": 23.92528403847235}], "tag": "AM", "color": "#ff8cc8", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 44.957}, {"t": "2026-08-24T16:34:02Z", "eq": 44.477}, {"t": "2026-08-24T17:05:25Z", "eq": 43.5555}, {"t": "2026-08-24T17:28:14Z", "eq": 41.7326}, {"t": "2026-08-24T17:35:57Z", "eq": 40.6595}, {"t": "2026-08-24T18:06:17Z", "eq": 45.6718}, {"t": "2026-08-24T18:34:35Z", "eq": 43.6188}, {"t": "2026-08-24T20:32:11Z", "eq": 41.1201}, {"t": "2026-08-24T20:50:20Z", "eq": 42.8785}, {"t": "2026-08-24T21:04:56Z", "eq": 43.2761}, {"t": "2026-08-24T21:33:09Z", "eq": 44.4911}, {"t": "2026-08-24T22:01:06Z", "eq": 44.4911}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.480000000000004, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.40"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 43.500516433586085, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 42.8784590485858, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "residual_gated", "name": "Residual + gate BTC", "subtitle": "M\u00eame residual, cash si BTC 4h casse", "kind": "livre", "equity": 42.08324849, "start": 50.0, "pnl": -7.916751509999997, "pnl_pct": -15.833503019999995, "high_water": 50.0, "max_dd": 25.686246, "trades": 1, "fees": 2.051017545567466, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 312.47406048287957, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 24.63792605770852, "notional": 246.37926057708518}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 660.4778854134795, "price": 0.41636518962, "notional": 275.00000000000006, "fee": 0.7150000000000001, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55", "equity_after": 49.285, "stop": 0.3944601792256735, "take_profit": null, "margin": 27.500000000000004}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 660.4778854134795, "price": 0.40496986723, "notional": 267.47364156424794, "fee": 0.6954314680670446, "pnl": -7.526358435752089, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 41.06321009618087}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 312.47406048287957, "price": 0.7884790827, "notional": 246.37926057708518, "fee": 0.6405860775004214, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 40.422624018680445, "stop": 0.741170337738, "take_profit": null, "margin": 24.63792605770852}], "tag": "GT", "color": "#c084fc", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 43.0658}, {"t": "2026-08-24T16:34:02Z", "eq": 42.4059}, {"t": "2026-08-24T17:05:25Z", "eq": 41.1388}, {"t": "2026-08-24T17:28:14Z", "eq": 38.6323}, {"t": "2026-08-24T17:35:57Z", "eq": 37.1569}, {"t": "2026-08-24T18:06:17Z", "eq": 44.0487}, {"t": "2026-08-24T18:34:35Z", "eq": 41.2258}, {"t": "2026-08-24T20:32:11Z", "eq": 37.7901}, {"t": "2026-08-24T20:50:20Z", "eq": 40.4226}, {"t": "2026-08-24T21:04:56Z", "eq": 40.8321}, {"t": "2026-08-24T21:33:09Z", "eq": 42.0832}, {"t": "2026-08-24T22:01:06Z", "eq": 42.0832}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.285, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 41.06321009618087, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 40.422624018680445, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "residual_hold", "name": "Residual hold", "subtitle": "24h moins BTC, trail ATR, on ne coupe pas", "kind": "livre", "equity": 41.333953, "start": 50.0, "pnl": -8.666046999999999, "pnl_pct": -17.332093999999998, "high_water": 50.0, "max_dd": 28.021359, "trades": 1, "fees": 2.218890602210001, "status": "active", "last_reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "time_to_100": null, "position": {"symbol": "PF_VIRTUALUSD", "side": "long", "size": 331.81607599729966, "entry": 0.7884790827, "mark": 0.79379352215, "leverage": 10, "stop": 0.741170337738, "take_profit": null, "margin": 26.163003522746433, "notional": 261.6300352274643}, "log": [{"ts": "2026-08-23T21:19:01Z", "action": "open", "symbol": "PF_WLDUSD", "side": "long", "size": 720.5213295419776, "price": 0.41636518962, "notional": 300.0, "fee": 0.7799999999999999, "pnl": 0.0, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60", "equity_after": 49.22, "stop": 0.3944601792256735, "take_profit": null, "margin": 30.0}, {"ts": "2026-08-24T20:50:20Z", "action": "close", "symbol": "PF_WLDUSD", "side": "long", "size": 720.5213295419776, "price": 0.40496986723, "notional": 291.7894271609977, "fee": 0.7586525106185941, "pnl": -8.210572839002278, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 40.25077465037913}, {"ts": "2026-08-24T20:50:20Z", "action": "open", "symbol": "PF_VIRTUALUSD", "side": "long", "size": 331.81607599729966, "price": 0.7884790827, "notional": 261.6300352274643, "fee": 0.6802380915914071, "pnl": 0.0, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8", "equity_after": 39.57053655878772, "stop": 0.741170337738, "take_profit": null, "margin": 26.163003522746433}], "tag": "RH", "color": "#3ee0b0", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 42.4355}, {"t": "2026-08-24T16:34:02Z", "eq": 41.7155}, {"t": "2026-08-24T17:05:25Z", "eq": 40.3332}, {"t": "2026-08-24T17:28:14Z", "eq": 37.5989}, {"t": "2026-08-24T17:35:57Z", "eq": 35.9893}, {"t": "2026-08-24T18:06:17Z", "eq": 43.5077}, {"t": "2026-08-24T18:34:35Z", "eq": 40.4282}, {"t": "2026-08-24T20:32:11Z", "eq": 36.6801}, {"t": "2026-08-24T20:50:20Z", "eq": 39.5705}, {"t": "2026-08-24T21:04:56Z", "eq": 40.0054}, {"t": "2026-08-24T21:33:09Z", "eq": 41.334}, {"t": "2026-08-24T22:01:06Z", "eq": 41.334}], "fills": [{"t": "2026-08-23T21:19:01Z", "kind": "open", "side": "long", "symbol": "PF_WLDUSD", "eq": 49.22, "price": 0.41636518962, "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60"}, {"t": "2026-08-24T20:50:20Z", "kind": "close", "side": "long", "symbol": "PF_WLDUSD", "eq": 40.25077465037913, "price": 0.40496986723, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}, {"t": "2026-08-24T20:50:20Z", "kind": "open", "side": "long", "symbol": "PF_VIRTUALUSD", "eq": 39.57053655878772, "price": 0.7884790827, "reason": "leader_gave_up PF_WLDUSD r=-2.4 -> PF_VIRTUALUSD r=5.8"}]}, {"id": "basis_squeeze", "name": "Basis squeeze", "subtitle": "Ride le funding crowded, pas fade", "kind": "livre", "equity": 33.96596833, "start": 50.0, "pnl": -16.034031669999997, "pnl_pct": -32.068063339999995, "high_water": 50.0, "max_dd": 32.068063, "trades": 4, "fees": 5.399208460656602, "status": "active", "last_reason": "squeeze_over", "time_to_100": null, "position": null, "log": [{"ts": "2026-08-24T15:07:18Z", "action": "open", "symbol": "PF_ZECUSD", "side": "long", "size": 0.3192481330546486, "price": 861.39892931786, "notional": 275.00000000000006, "fee": 0.7150000000000001, "pnl": 0.0, "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92", "equity_after": 49.285, "stop": 809.7149935587885, "take_profit": null, "margin": 27.500000000000004}, {"ts": "2026-08-24T16:34:02Z", "action": "close", "symbol": "PF_ZECUSD", "side": "long", "size": 0.3192481330546486, "price": 843.37758353577, "notional": 269.24671900393554, "fee": 0.7000414694102324, "pnl": -5.75328099606452, "reason": "squeeze_over", "equity_after": 42.83167753452524}, {"ts": "2026-08-24T17:28:14Z", "action": "open", "symbol": "PF_LTCUSD", "side": "long", "size": 5.342089413540141, "price": 52.1155455146, "notional": 278.40590397441406, "fee": 0.7238553503334765, "pnl": 0.0, "reason": "squeeze_ride PF_LTCUSD fr=0.001601437931654184 chg=-0.46", "equity_after": 42.10782218419176, "stop": 50.1950245576567, "take_profit": null, "margin": 27.840590397441407}, {"ts": "2026-08-24T17:35:57Z", "action": "close", "symbol": "PF_LTCUSD", "side": "long", "size": 5.342089413540141, "price": 51.65381672191, "notional": 275.93930747905813, "fee": 0.7174421994455511, "pnl": -2.4665964953559376, "reason": "squeeze_over", "equity_after": 38.923783489390274}, {"ts": "2026-08-24T18:06:17Z", "action": "open", "symbol": "PF_LINKUSD", "side": "long", "size": 21.877965134793264, "price": 11.56435669964, "notional": 253.0045926810368, "fee": 0.6578119409706956, "pnl": 0.0, "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58", "equity_after": 38.26597154841958, "stop": 11.133930069440414, "take_profit": null, "margin": 25.30045926810368}, {"ts": "2026-08-24T20:32:11Z", "action": "close", "symbol": "PF_LINKUSD", "side": "long", "size": 21.877965134793264, "price": 11.51333474264, "notional": 251.8883360846819, "fee": 0.6549096738201728, "pnl": -1.116256596354914, "reason": "squeeze_over", "equity_after": 36.49480527824449}, {"ts": "2026-08-24T21:04:56Z", "action": "open", "symbol": "PF_TAOUSD", "side": "long", "size": 0.9755773508526162, "price": 243.15471664166, "notional": 237.2162343085892, "fee": 0.6167622092023319, "pnl": 0.0, "reason": "squeeze_ride PF_TAOUSD fr=0.0036130586827875 chg=-0.42", "equity_after": 35.878043069042164, "stop": 230.22539225390267, "take_profit": null, "margin": 23.72162343085892}, {"ts": "2026-08-24T21:33:09Z", "action": "close", "symbol": "PF_TAOUSD", "side": "long", "size": 0.9755773508526162, "price": 241.82351607095, "notional": 235.91754518236246, "fee": 0.6133856174741423, "pnl": -1.2986891262267484, "reason": "squeeze_over", "equity_after": 33.965968325341265}], "tag": "SQ", "color": "#6ea8ff", "hist": [{"t": "2026-08-23T21:18:54Z", "eq": 50.0}, {"t": "2026-08-23T21:35:18Z", "eq": 50.0}, {"t": "2026-08-24T15:07:18Z", "eq": 49.285}, {"t": "2026-08-24T16:34:02Z", "eq": 42.8317}, {"t": "2026-08-24T17:05:25Z", "eq": 42.8317}, {"t": "2026-08-24T17:28:14Z", "eq": 42.1078}, {"t": "2026-08-24T17:35:57Z", "eq": 38.9238}, {"t": "2026-08-24T18:06:17Z", "eq": 38.266}, {"t": "2026-08-24T18:34:35Z", "eq": 38.8832}, {"t": "2026-08-24T20:32:11Z", "eq": 36.4948}, {"t": "2026-08-24T20:50:20Z", "eq": 36.4948}, {"t": "2026-08-24T21:04:56Z", "eq": 35.878}, {"t": "2026-08-24T21:33:09Z", "eq": 33.966}, {"t": "2026-08-24T22:01:06Z", "eq": 33.966}], "fills": [{"t": "2026-08-24T15:07:18Z", "kind": "open", "side": "long", "symbol": "PF_ZECUSD", "eq": 49.285, "price": 861.39892931786, "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92"}, {"t": "2026-08-24T16:34:02Z", "kind": "close", "side": "long", "symbol": "PF_ZECUSD", "eq": 42.83167753452524, "price": 843.37758353577, "reason": "squeeze_over"}, {"t": "2026-08-24T17:28:14Z", "kind": "open", "side": "long", "symbol": "PF_LTCUSD", "eq": 42.10782218419176, "price": 52.1155455146, "reason": "squeeze_ride PF_LTCUSD fr=0.001601437931654184 chg=-0.46"}, {"t": "2026-08-24T17:35:57Z", "kind": "close", "side": "long", "symbol": "PF_LTCUSD", "eq": 38.923783489390274, "price": 51.65381672191, "reason": "squeeze_over"}, {"t": "2026-08-24T18:06:17Z", "kind": "open", "side": "long", "symbol": "PF_LINKUSD", "eq": 38.26597154841958, "price": 11.56435669964, "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58"}, {"t": "2026-08-24T20:32:11Z", "kind": "close", "side": "long", "symbol": "PF_LINKUSD", "eq": 36.49480527824449, "price": 11.51333474264, "reason": "squeeze_over"}, {"t": "2026-08-24T21:04:56Z", "kind": "open", "side": "long", "symbol": "PF_TAOUSD", "eq": 35.878043069042164, "price": 243.15471664166, "reason": "squeeze_ride PF_TAOUSD fr=0.0036130586827875 chg=-0.42"}, {"t": "2026-08-24T21:33:09Z", "kind": "close", "side": "long", "symbol": "PF_TAOUSD", "eq": 33.965968325341265, "price": 241.82351607095, "reason": "squeeze_over"}]}], "passage": [{"date": "2026-08-26", "label": "26 ao\u00fbt J+3", "target": 67}, {"date": "2026-08-30", "label": "30 ao\u00fbt J+7", "target": 100}, {"date": "2026-09-02", "label": "2 sept J+10", "target": 136}, {"date": "2026-09-06", "label": "6 sept J+14", "target": 200}, {"date": "2026-09-13", "label": "13 sept J+21", "target": 405}, {"date": "2026-09-22", "label": "22 sept J+30", "target": 1000}], "ghost": [{"t": "2026-08-22T22:00:00Z", "eq": 50.0}, {"t": "2026-08-23T10:00:00Z", "eq": 52.56}, {"t": "2026-08-23T22:00:00Z", "eq": 55.25}, {"t": "2026-08-24T10:00:00Z", "eq": 58.08}, {"t": "2026-08-24T22:00:00Z", "eq": 61.05}, {"t": "2026-08-25T10:00:00Z", "eq": 64.18}, {"t": "2026-08-25T22:00:00Z", "eq": 67.46}, {"t": "2026-08-26T10:00:00Z", "eq": 70.91}, {"t": "2026-08-26T22:00:00Z", "eq": 74.55}, {"t": "2026-08-27T10:00:00Z", "eq": 78.36}, {"t": "2026-08-27T22:00:00Z", "eq": 82.37}, {"t": "2026-08-28T10:00:00Z", "eq": 86.59}, {"t": "2026-08-28T22:00:00Z", "eq": 91.02}, {"t": "2026-08-29T10:00:00Z", "eq": 95.68}, {"t": "2026-08-29T22:00:00Z", "eq": 100.58}, {"t": "2026-08-30T10:00:00Z", "eq": 105.73}, {"t": "2026-08-30T22:00:00Z", "eq": 111.14}, {"t": "2026-08-31T10:00:00Z", "eq": 116.83}, {"t": "2026-08-31T22:00:00Z", "eq": 122.81}, {"t": "2026-09-01T10:00:00Z", "eq": 129.1}, {"t": "2026-09-01T22:00:00Z", "eq": 135.7}, {"t": "2026-09-02T10:00:00Z", "eq": 142.65}, {"t": "2026-09-02T22:00:00Z", "eq": 149.95}, {"t": "2026-09-03T10:00:00Z", "eq": 157.63}, {"t": "2026-09-03T22:00:00Z", "eq": 165.7}, {"t": "2026-09-04T10:00:00Z", "eq": 174.18}, {"t": "2026-09-04T22:00:00Z", "eq": 183.1}, {"t": "2026-09-05T10:00:00Z", "eq": 192.47}, {"t": "2026-09-05T22:00:00Z", "eq": 202.32}, {"t": "2026-09-06T10:00:00Z", "eq": 212.68}, {"t": "2026-09-06T22:00:00Z", "eq": 223.57}, {"t": "2026-09-07T10:00:00Z", "eq": 235.01}, {"t": "2026-09-07T22:00:00Z", "eq": 247.04}, {"t": "2026-09-08T10:00:00Z", "eq": 259.69}, {"t": "2026-09-08T22:00:00Z", "eq": 272.98}, {"t": "2026-09-09T10:00:00Z", "eq": 286.95}, {"t": "2026-09-09T22:00:00Z", "eq": 301.64}, {"t": "2026-09-10T10:00:00Z", "eq": 317.08}, {"t": "2026-09-10T22:00:00Z", "eq": 333.31}, {"t": "2026-09-11T10:00:00Z", "eq": 350.38}, {"t": "2026-09-11T22:00:00Z", "eq": 368.31}, {"t": "2026-09-12T10:00:00Z", "eq": 387.17}, {"t": "2026-09-12T22:00:00Z", "eq": 406.98}, {"t": "2026-09-13T10:00:00Z", "eq": 427.82}, {"t": "2026-09-13T22:00:00Z", "eq": 449.72}, {"t": "2026-09-14T10:00:00Z", "eq": 472.74}, {"t": "2026-09-14T22:00:00Z", "eq": 496.94}, {"t": "2026-09-15T10:00:00Z", "eq": 522.38}, {"t": "2026-09-15T22:00:00Z", "eq": 549.12}, {"t": "2026-09-16T10:00:00Z", "eq": 577.23}, {"t": "2026-09-16T22:00:00Z", "eq": 606.77}, {"t": "2026-09-17T10:00:00Z", "eq": 637.83}, {"t": "2026-09-17T22:00:00Z", "eq": 670.49}, {"t": "2026-09-18T10:00:00Z", "eq": 704.81}, {"t": "2026-09-18T22:00:00Z", "eq": 740.89}, {"t": "2026-09-19T10:00:00Z", "eq": 778.81}, {"t": "2026-09-19T22:00:00Z", "eq": 818.68}, {"t": "2026-09-20T10:00:00Z", "eq": 860.59}, {"t": "2026-09-20T22:00:00Z", "eq": 904.64}, {"t": "2026-09-21T10:00:00Z", "eq": 950.95}, {"t": "2026-09-21T22:00:00Z", "eq": 999.63}, {"t": "2026-09-22T10:00:00Z", "eq": 1000.0}, {"t": "2026-09-22T21:59:00Z", "eq": 1000.0}], "racers": [{"id": "temoin", "tag": "T\u00c9", "color": "#f0c14b"}, {"id": "residual_hold", "tag": "RH", "color": "#3ee0b0"}, {"id": "wick_fade", "tag": "WK", "color": "#ff7a59"}, {"id": "basis_squeeze", "tag": "SQ", "color": "#6ea8ff"}, {"id": "residual_gated", "tag": "GT", "color": "#c084fc"}, {"id": "antimart_residual", "tag": "AM", "color": "#ff8cc8"}], "note": "T\u00e9moin = vrai paper Kraken. 5 livres = simu prix live, frais 0.26%, pas de slippage. 0$ r\u00e9el."};
 const $ = (id) => document.getElementById(id);
 const fmt = (n, d=2) => (n==null||isNaN(n)) ? "—" : Number(n).toLocaleString("fr-FR", {minimumFractionDigits:d, maximumFractionDigits:d});
 const usd = (n) => fmt(n, 2) + " $";
@@ -339,16 +346,54 @@ const PTRS = new Map();
 let GEST = null;
 let LAST_TAP = 0;
 
+function updateZoomLabel() {
+  const el = $("zlab");
+  if (!el || !window.DATA) return;
+  const full = fullRange(window.DATA);
+  const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
+  const h = (t1 - t0) / 3600000;
+  el.textContent = (h >= (full.t1-full.t0)/3600000 * 0.95) ? "vue tout" : ("vue " + (h < 9.5 ? (Math.round(h*10)/10) + "h" : Math.round(h) + "h"));
+  document.querySelectorAll(".zoombar [data-win]").forEach(b => {
+    const wh = Number(b.dataset.win);
+    b.classList.toggle("on", Math.abs(h - wh) < 0.6);
+  });
+  const zr = $("zreset");
+  if (zr) zr.classList.toggle("on", VIEW.t0 == null);
+}
+function setWindowHours(h) {
+  const full = fullRange(window.DATA);
+  VIEW.t1 = full.t1;
+  VIEW.t0 = Math.max(full.t0, full.t1 - h * 3600000);
+  drawRace(window.DATA);
+}
+function pinchDist(touches) {
+  const a = touches[0], b = touches[1];
+  return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+}
+function pinchAnchor(touches) {
+  const mid = (touches[0].clientX + touches[1].clientX) / 2;
+  const {sx} = svgXY(mid, 0);
+  const full = fullRange(window.DATA);
+  const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
+  const L=56, R=92, innerW=1000-L-R;
+  return t0 + Math.max(0, Math.min(1, (sx-L)/innerW)) * (t1-t0);
+}
+function bindBtn(el, fn) {
+  if (!el) return;
+  el.addEventListener("click", (e) => { e.preventDefault(); fn(); });
+}
+
 function bindZoom(D) {
   if (BOUND) return;
-  BOUND = true;
   const hit = $("charthit");
   const box = $("chartbox");
+  if (!hit || !box) return;
+  BOUND = true;
   box.addEventListener("wheel", (ev) => {
     ev.preventDefault();
     const svg = $("race");
     const rect = svg.getBoundingClientRect();
-    const sx = (ev.clientX - rect.left) * (1000 / rect.width);
+    const sx = (ev.clientX - rect.left) * (1000 / Math.max(rect.width,1));
     const L=56, R=92, innerW=1000-L-R;
     const full = fullRange(window.DATA);
     const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
@@ -356,83 +401,109 @@ function bindZoom(D) {
     applyZoom(ev.deltaY>0 ? 1.22 : 0.78, anchor, window.DATA);
   }, {passive:false});
 
-  hit.addEventListener("pointerdown", (ev) => {
-    hit.setPointerCapture(ev.pointerId);
-    PTRS.set(ev.pointerId, {x: ev.clientX, y: ev.clientY});
+  // iOS Safari: native gesture events actually fire for pinch.
+  box.addEventListener("gesturestart", (ev) => {
+    ev.preventDefault();
     const full = fullRange(window.DATA);
-    if (PTRS.size === 2) {
-      const pts = [...PTRS.values()];
-      const d = Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y);
-      const mid = (pts[0].x + pts[1].x) / 2;
-      const {sx} = svgXY(mid, 0);
-      const L=56, R=92, innerW=1000-L-R;
-      const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
-      const anchor = t0 + Math.max(0, Math.min(1, (sx-L)/innerW)) * (t1-t0);
-      GEST = {mode:"pinch", d: Math.max(d, 1), t0, t1, anchor};
-    } else if (PTRS.size === 1) {
-      const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
-      GEST = {mode:"maybe", x: ev.clientX, y: ev.clientY, t0, t1};
-    }
-  });
-  hit.addEventListener("pointermove", (ev) => {
-    if (!PTRS.has(ev.pointerId)) return;
-    PTRS.set(ev.pointerId, {x: ev.clientX, y: ev.clientY});
-    if (GEST && GEST.mode === "pinch" && PTRS.size >= 2) {
+    GEST = {mode:"gesture", t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1};
+  }, {passive:false});
+  box.addEventListener("gesturechange", (ev) => {
+    ev.preventDefault();
+    if (!GEST || GEST.mode !== "gesture") return;
+    VIEW.t0 = GEST.t0; VIEW.t1 = GEST.t1;
+    applyZoom(1 / Math.max(ev.scale, 0.05), null, window.DATA);
+  }, {passive:false});
+  box.addEventListener("gestureend", () => { if (GEST && GEST.mode === "gesture") GEST = null; }, {passive:false});
+
+  // Touch pinch (Android / iOS fallback). Overlay is never rebuilt so the gesture survives drawRace.
+  hit.addEventListener("touchstart", (ev) => {
+    if (ev.touches.length >= 2) {
       ev.preventDefault();
-      const pts = [...PTRS.values()];
-      const d = Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y);
-      const factor = GEST.d / Math.max(d, 1);
+      const full = fullRange(window.DATA);
+      GEST = {mode:"pinch", d: Math.max(pinchDist(ev.touches), 1), t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1, anchor: pinchAnchor(ev.touches)};
+    } else if (ev.touches.length === 1) {
+      const full = fullRange(window.DATA);
+      GEST = {mode:"maybe", x: ev.touches[0].clientX, y: ev.touches[0].clientY, t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1};
+    }
+  }, {passive:false});
+  hit.addEventListener("touchmove", (ev) => {
+    if (GEST && GEST.mode === "pinch" && ev.touches.length >= 2) {
+      ev.preventDefault();
+      const d = pinchDist(ev.touches);
       VIEW.t0 = GEST.t0; VIEW.t1 = GEST.t1;
-      applyZoom(factor, GEST.anchor, window.DATA);
+      applyZoom(GEST.d / Math.max(d, 1), GEST.anchor, window.DATA);
       return;
     }
-    if (GEST && GEST.mode !== "pinch") {
-      const dist = Math.hypot(ev.clientX - GEST.x, ev.clientY - GEST.y);
+    if (GEST && GEST.mode !== "pinch" && GEST.mode !== "gesture" && ev.touches.length === 1) {
+      const dist = Math.hypot(ev.touches[0].clientX - GEST.x, ev.touches[0].clientY - GEST.y);
       if (dist > 10) GEST.mode = "pan";
       if (GEST.mode === "pan") {
         ev.preventDefault();
+        panFrom(ev.touches[0].clientX, GEST);
+        $("tip").style.display = "none";
+      }
+    }
+  }, {passive:false});
+  hit.addEventListener("touchend", (ev) => {
+    if (GEST && GEST.mode === "maybe" && ev.changedTouches.length) {
+      const tch = ev.changedTouches[0];
+      const moved = Math.hypot(tch.clientX - GEST.x, tch.clientY - GEST.y);
+      if (moved < 12 && ev.touches.length === 0) {
+        const now = Date.now();
+        if (now - LAST_TAP < 300) {
+          applyZoom(0.62, pinchAnchor([{clientX:tch.clientX, clientY:tch.clientY},{clientX:tch.clientX, clientY:tch.clientY}]), window.DATA);
+          LAST_TAP = 0;
+        } else {
+          LAST_TAP = now;
+          const h = hitFill(tch.clientX, tch.clientY);
+          if (h) openFill(h);
+        }
+      }
+    }
+    if (ev.touches.length === 0) GEST = null;
+    else if (ev.touches.length === 1) {
+      const full = fullRange(window.DATA);
+      GEST = {mode:"pan", x: ev.touches[0].clientX, t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1};
+    }
+  }, {passive:false});
+
+  hit.addEventListener("pointerdown", (ev) => {
+    if (ev.pointerType !== "mouse") return;
+    hit.setPointerCapture(ev.pointerId);
+    PTRS.set(ev.pointerId, {x: ev.clientX, y: ev.clientY});
+    const full = fullRange(window.DATA);
+    GEST = {mode:"maybe", x: ev.clientX, y: ev.clientY, t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1};
+  });
+  hit.addEventListener("pointermove", (ev) => {
+    if (ev.pointerType !== "mouse") return;
+    if (GEST && GEST.mode !== "pinch" && GEST.mode !== "gesture") {
+      const dist = Math.hypot(ev.clientX - GEST.x, ev.clientY - GEST.y);
+      if (dist > 8) GEST.mode = "pan";
+      if (GEST.mode === "pan") {
         panFrom(ev.clientX, GEST);
         $("tip").style.display = "none";
         return;
       }
     }
-    if (ev.pointerType === "mouse") showTipAt(ev.clientX, ev.clientY);
+    showTipAt(ev.clientX, ev.clientY);
   });
-  function endPtr(ev) {
+  hit.addEventListener("pointerup", (ev) => {
+    if (ev.pointerType !== "mouse") return;
     PTRS.delete(ev.pointerId);
-    try { hit.releasePointerCapture(ev.pointerId); } catch (e) {}
     if (GEST && GEST.mode === "maybe") {
-      const moved = Math.hypot(ev.clientX - GEST.x, ev.clientY - GEST.y);
-      if (moved < 12) {
-        const now = Date.now();
-        if (now - LAST_TAP < 300) {
-          const {sx} = svgXY(ev.clientX, ev.clientY);
-          const full = fullRange(window.DATA);
-          const t0 = VIEW.t0 ?? full.t0, t1 = VIEW.t1 ?? full.t1;
-          const L=56, R=92, innerW=1000-L-R;
-          const anchor = t0 + Math.max(0, Math.min(1, (sx-L)/innerW)) * (t1-t0);
-          applyZoom(0.62, anchor, window.DATA);
-          LAST_TAP = 0;
-        } else {
-          LAST_TAP = now;
-          const h = hitFill(ev.clientX, ev.clientY);
-          if (h) openFill(h);
-        }
-      }
+      const h = hitFill(ev.clientX, ev.clientY);
+      if (h) openFill(h);
     }
-    if (PTRS.size === 0) GEST = null;
-    else if (PTRS.size === 1) {
-      const left = [...PTRS.values()][0];
-      const full = fullRange(window.DATA);
-      GEST = {mode:"pan", x: left.x, t0: VIEW.t0 ?? full.t0, t1: VIEW.t1 ?? full.t1};
-    }
-  }
-  hit.addEventListener("pointerup", endPtr);
-  hit.addEventListener("pointercancel", endPtr);
+    GEST = null;
+  });
   hit.addEventListener("pointerleave", () => { $("tip").style.display = "none"; });
-  $("zin").onclick = () => applyZoom(0.7, null, window.DATA);
-  $("zout").onclick = () => applyZoom(1.4, null, window.DATA);
-  $("zreset").onclick = () => { VIEW.t0 = VIEW.t1 = null; drawRace(window.DATA); };
+
+  bindBtn($("zin"), () => applyZoom(0.6, null, window.DATA));
+  bindBtn($("zout"), () => applyZoom(1.7, null, window.DATA));
+  bindBtn($("zreset"), () => { VIEW.t0 = VIEW.t1 = null; drawRace(window.DATA); });
+  document.querySelectorAll(".zoombar [data-win]").forEach(b => {
+    bindBtn(b, () => setWindowHours(Number(b.dataset.win)));
+  });
 }
 
 function drawRace(D) {
@@ -523,6 +594,7 @@ function drawRace(D) {
   });
   svg.innerHTML = g;
   window._marks = marks;
+  updateZoomLabel();
 }
 
 function miniChart(b) {
@@ -613,6 +685,11 @@ $("big").onclick = () => openCard(window.DATA.temoin);
 
 function paint(D) {
   window.DATA = D;
+  if (VIEW.t0 == null && window.innerWidth < 720) {
+    const full = fullRange(D);
+    VIEW.t1 = full.t1;
+    VIEW.t0 = Math.max(full.t0, full.t1 - 24*3600000);
+  }
   renderScore(D);
   bindZoom(D);
   drawRace(D);
