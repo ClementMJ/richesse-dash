@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-24T19:36:08.494369+02:00",
+  "generated_at": "2026-08-24T20:06:22.734055+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 6,
+  "ticks": 7,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
@@ -241,6 +241,10 @@
       {
         "t": "2026-08-24T17:36:08Z",
         "eq": 41.736
+      },
+      {
+        "t": "2026-08-24T18:06:22Z",
+        "eq": 41.736
       }
     ]
   },
@@ -283,7 +287,11 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-24T17:36:08Z",
+          "t": "2026-08-24T17:35:57Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-24T18:06:22Z",
           "eq": 50.0
         }
       ],
@@ -294,10 +302,10 @@
       "name": "Anti-martingale",
       "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 40.65954686,
+      "equity": 45.67177473,
       "start": 50.0,
-      "pnl": -9.340453140000001,
-      "pnl_pct": -18.68090628,
+      "pnl": -4.328225269999997,
+      "pnl_pct": -8.656450539999994,
       "high_water": 50.0,
       "max_dd": 18.680906,
       "trades": 0,
@@ -310,7 +318,7 @@
         "side": "long",
         "size": 480.34755302798504,
         "entry": 0.41636518962,
-        "mark": 0.3980025414,
+        "mark": 0.40843712743,
         "leverage": 10,
         "stop": 0.3950399767423455,
         "take_profit": null,
@@ -359,8 +367,12 @@
           "eq": 41.7326
         },
         {
-          "t": "2026-08-24T17:36:08Z",
+          "t": "2026-08-24T17:35:57Z",
           "eq": 40.6595
+        },
+        {
+          "t": "2026-08-24T18:06:22Z",
+          "eq": 45.6718
         }
       ],
       "fills": [
@@ -376,22 +388,213 @@
       ]
     },
     {
+      "id": "residual_gated",
+      "name": "Residual + gate BTC",
+      "subtitle": "M\u00eame residual, cash si BTC 4h casse",
+      "kind": "livre",
+      "equity": 44.04869025,
+      "start": 50.0,
+      "pnl": -5.95130975,
+      "pnl_pct": -11.9026195,
+      "high_water": 50.0,
+      "max_dd": 25.686246,
+      "trades": 0,
+      "fees": 0.7150000000000001,
+      "status": "active",
+      "last_reason": "trail r=-2.9",
+      "time_to_100": null,
+      "position": {
+        "symbol": "PF_WLDUSD",
+        "side": "long",
+        "size": 660.4778854134795,
+        "entry": 0.41636518962,
+        "mark": 0.40843712743,
+        "leverage": 10,
+        "stop": 0.3950399767423455,
+        "take_profit": null,
+        "margin": 27.500000000000004,
+        "notional": 275.00000000000006
+      },
+      "log": [
+        {
+          "ts": "2026-08-23T21:19:01Z",
+          "action": "open",
+          "symbol": "PF_WLDUSD",
+          "side": "long",
+          "size": 660.4778854134795,
+          "price": 0.41636518962,
+          "notional": 275.00000000000006,
+          "fee": 0.7150000000000001,
+          "pnl": 0.0,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55",
+          "equity_after": 49.285,
+          "stop": 0.3944601792256735,
+          "take_profit": null,
+          "margin": 27.500000000000004
+        }
+      ],
+      "tag": "GT",
+      "color": "#c084fc",
+      "hist": [
+        {
+          "t": "2026-08-23T21:18:54Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-24T15:07:18Z",
+          "eq": 43.0658
+        },
+        {
+          "t": "2026-08-24T16:34:02Z",
+          "eq": 42.4059
+        },
+        {
+          "t": "2026-08-24T17:05:25Z",
+          "eq": 41.1388
+        },
+        {
+          "t": "2026-08-24T17:28:14Z",
+          "eq": 38.6323
+        },
+        {
+          "t": "2026-08-24T17:35:57Z",
+          "eq": 37.1569
+        },
+        {
+          "t": "2026-08-24T18:06:22Z",
+          "eq": 44.0487
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-23T21:19:01Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_WLDUSD",
+          "eq": 49.285,
+          "price": 0.41636518962,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55"
+        }
+      ]
+    },
+    {
+      "id": "residual_hold",
+      "name": "Residual hold",
+      "subtitle": "24h moins BTC, trail ATR, on ne coupe pas",
+      "kind": "livre",
+      "equity": 43.50766209,
+      "start": 50.0,
+      "pnl": -6.492337910000003,
+      "pnl_pct": -12.984675820000003,
+      "high_water": 50.0,
+      "max_dd": 28.021359,
+      "trades": 0,
+      "fees": 0.7799999999999999,
+      "status": "active",
+      "last_reason": "trail r=-2.9",
+      "time_to_100": null,
+      "position": {
+        "symbol": "PF_WLDUSD",
+        "side": "long",
+        "size": 720.5213295419776,
+        "entry": 0.41636518962,
+        "mark": 0.40843712743,
+        "leverage": 10,
+        "stop": 0.3950399767423455,
+        "take_profit": null,
+        "margin": 30.0,
+        "notional": 300.0
+      },
+      "log": [
+        {
+          "ts": "2026-08-23T21:19:01Z",
+          "action": "open",
+          "symbol": "PF_WLDUSD",
+          "side": "long",
+          "size": 720.5213295419776,
+          "price": 0.41636518962,
+          "notional": 300.0,
+          "fee": 0.7799999999999999,
+          "pnl": 0.0,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60",
+          "equity_after": 49.22,
+          "stop": 0.3944601792256735,
+          "take_profit": null,
+          "margin": 30.0
+        }
+      ],
+      "tag": "RH",
+      "color": "#3ee0b0",
+      "hist": [
+        {
+          "t": "2026-08-23T21:18:54Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-24T15:07:18Z",
+          "eq": 42.4355
+        },
+        {
+          "t": "2026-08-24T16:34:02Z",
+          "eq": 41.7155
+        },
+        {
+          "t": "2026-08-24T17:05:25Z",
+          "eq": 40.3332
+        },
+        {
+          "t": "2026-08-24T17:28:14Z",
+          "eq": 37.5989
+        },
+        {
+          "t": "2026-08-24T17:35:57Z",
+          "eq": 35.9893
+        },
+        {
+          "t": "2026-08-24T18:06:22Z",
+          "eq": 43.5077
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-23T21:19:01Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_WLDUSD",
+          "eq": 49.22,
+          "price": 0.41636518962,
+          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60"
+        }
+      ]
+    },
+    {
       "id": "basis_squeeze",
       "name": "Basis squeeze",
       "subtitle": "Ride le funding crowded, pas fade",
       "kind": "livre",
-      "equity": 38.92378349,
+      "equity": 38.26597155,
       "start": 50.0,
-      "pnl": -11.076216510000002,
-      "pnl_pct": -22.152433020000007,
+      "pnl": -11.734028449999997,
+      "pnl_pct": -23.46805689999999,
       "high_water": 50.0,
-      "max_dd": 22.152433,
+      "max_dd": 23.468057,
       "trades": 2,
-      "fees": 2.85633901918926,
+      "fees": 3.514150960159956,
       "status": "active",
-      "last_reason": "squeeze_over",
+      "last_reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58",
       "time_to_100": null,
-      "position": null,
+      "position": {
+        "symbol": "PF_LINKUSD",
+        "side": "long",
+        "size": 21.877965134793264,
+        "entry": 11.56435669964,
+        "mark": 11.56435669964,
+        "leverage": 10,
+        "stop": 11.133930069440414,
+        "take_profit": null,
+        "margin": 25.30045926810368,
+        "notional": 253.0045926810368
+      },
       "log": [
         {
           "ts": "2026-08-24T15:07:18Z",
@@ -450,6 +653,22 @@
           "pnl": -2.4665964953559376,
           "reason": "squeeze_over",
           "equity_after": 38.923783489390274
+        },
+        {
+          "ts": "2026-08-24T18:06:17Z",
+          "action": "open",
+          "symbol": "PF_LINKUSD",
+          "side": "long",
+          "size": 21.877965134793264,
+          "price": 11.56435669964,
+          "notional": 253.0045926810368,
+          "fee": 0.6578119409706956,
+          "pnl": 0.0,
+          "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58",
+          "equity_after": 38.26597154841958,
+          "stop": 11.133930069440414,
+          "take_profit": null,
+          "margin": 25.30045926810368
         }
       ],
       "tag": "SQ",
@@ -480,8 +699,12 @@
           "eq": 42.1078
         },
         {
-          "t": "2026-08-24T17:36:08Z",
+          "t": "2026-08-24T17:35:57Z",
           "eq": 38.9238
+        },
+        {
+          "t": "2026-08-24T18:06:22Z",
+          "eq": 38.266
         }
       ],
       "fills": [
@@ -520,178 +743,15 @@
           "eq": 38.923783489390274,
           "price": 51.65381672191,
           "reason": "squeeze_over"
-        }
-      ]
-    },
-    {
-      "id": "residual_gated",
-      "name": "Residual + gate BTC",
-      "subtitle": "M\u00eame residual, cash si BTC 4h casse",
-      "kind": "livre",
-      "equity": 37.15687693,
-      "start": 50.0,
-      "pnl": -12.843123069999997,
-      "pnl_pct": -25.68624613999999,
-      "high_water": 50.0,
-      "max_dd": 25.686246,
-      "trades": 0,
-      "fees": 0.7150000000000001,
-      "status": "active",
-      "last_reason": "trail r=-2.9",
-      "time_to_100": null,
-      "position": {
-        "symbol": "PF_WLDUSD",
-        "side": "long",
-        "size": 660.4778854134795,
-        "entry": 0.41636518962,
-        "mark": 0.3980025414,
-        "leverage": 10,
-        "stop": 0.3950399767423455,
-        "take_profit": null,
-        "margin": 27.500000000000004,
-        "notional": 275.00000000000006
-      },
-      "log": [
-        {
-          "ts": "2026-08-23T21:19:01Z",
-          "action": "open",
-          "symbol": "PF_WLDUSD",
-          "side": "long",
-          "size": 660.4778854134795,
-          "price": 0.41636518962,
-          "notional": 275.00000000000006,
-          "fee": 0.7150000000000001,
-          "pnl": 0.0,
-          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55",
-          "equity_after": 49.285,
-          "stop": 0.3944601792256735,
-          "take_profit": null,
-          "margin": 27.500000000000004
-        }
-      ],
-      "tag": "GT",
-      "color": "#c084fc",
-      "hist": [
-        {
-          "t": "2026-08-23T21:18:54Z",
-          "eq": 50.0
         },
         {
-          "t": "2026-08-24T15:07:18Z",
-          "eq": 43.0658
-        },
-        {
-          "t": "2026-08-24T16:34:02Z",
-          "eq": 42.4059
-        },
-        {
-          "t": "2026-08-24T17:05:25Z",
-          "eq": 41.1388
-        },
-        {
-          "t": "2026-08-24T17:28:14Z",
-          "eq": 38.6323
-        },
-        {
-          "t": "2026-08-24T17:36:08Z",
-          "eq": 37.1569
-        }
-      ],
-      "fills": [
-        {
-          "t": "2026-08-23T21:19:01Z",
+          "t": "2026-08-24T18:06:17Z",
           "kind": "open",
           "side": "long",
-          "symbol": "PF_WLDUSD",
-          "eq": 49.285,
-          "price": 0.41636518962,
-          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.55"
-        }
-      ]
-    },
-    {
-      "id": "residual_hold",
-      "name": "Residual hold",
-      "subtitle": "24h moins BTC, trail ATR, on ne coupe pas",
-      "kind": "livre",
-      "equity": 35.98932029,
-      "start": 50.0,
-      "pnl": -14.010679709999998,
-      "pnl_pct": -28.021359419999992,
-      "high_water": 50.0,
-      "max_dd": 28.021359,
-      "trades": 0,
-      "fees": 0.7799999999999999,
-      "status": "active",
-      "last_reason": "trail r=-2.9",
-      "time_to_100": null,
-      "position": {
-        "symbol": "PF_WLDUSD",
-        "side": "long",
-        "size": 720.5213295419776,
-        "entry": 0.41636518962,
-        "mark": 0.3980025414,
-        "leverage": 10,
-        "stop": 0.3950399767423455,
-        "take_profit": null,
-        "margin": 30.0,
-        "notional": 300.0
-      },
-      "log": [
-        {
-          "ts": "2026-08-23T21:19:01Z",
-          "action": "open",
-          "symbol": "PF_WLDUSD",
-          "side": "long",
-          "size": 720.5213295419776,
-          "price": 0.41636518962,
-          "notional": 300.0,
-          "fee": 0.7799999999999999,
-          "pnl": 0.0,
-          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60",
-          "equity_after": 49.22,
-          "stop": 0.3944601792256735,
-          "take_profit": null,
-          "margin": 30.0
-        }
-      ],
-      "tag": "RH",
-      "color": "#3ee0b0",
-      "hist": [
-        {
-          "t": "2026-08-23T21:18:54Z",
-          "eq": 50.0
-        },
-        {
-          "t": "2026-08-24T15:07:18Z",
-          "eq": 42.4355
-        },
-        {
-          "t": "2026-08-24T16:34:02Z",
-          "eq": 41.7155
-        },
-        {
-          "t": "2026-08-24T17:05:25Z",
-          "eq": 40.3332
-        },
-        {
-          "t": "2026-08-24T17:28:14Z",
-          "eq": 37.5989
-        },
-        {
-          "t": "2026-08-24T17:36:08Z",
-          "eq": 35.9893
-        }
-      ],
-      "fills": [
-        {
-          "t": "2026-08-23T21:19:01Z",
-          "kind": "open",
-          "side": "long",
-          "symbol": "PF_WLDUSD",
-          "eq": 49.22,
-          "price": 0.41636518962,
-          "reason": "residual PF_WLDUSD r=6.0 btc=1.1 frac=0.60"
+          "symbol": "PF_LINKUSD",
+          "eq": 38.26597154841958,
+          "price": 11.56435669964,
+          "reason": "squeeze_ride PF_LINKUSD fr=0.000254520446625 chg=0.58"
         }
       ]
     }
