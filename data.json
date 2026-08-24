@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-24T17:07:30.502339+02:00",
+  "generated_at": "2026-08-24T18:34:25.135906+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 2,
+  "ticks": 3,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
@@ -233,6 +233,10 @@
       {
         "t": "2026-08-24T15:07:30Z",
         "eq": 41.736
+      },
+      {
+        "t": "2026-08-24T16:34:25Z",
+        "eq": 41.736
       }
     ]
   },
@@ -259,97 +263,27 @@
       "color": "#ff7a59",
       "hist": [
         {
-          "t": "2026-08-24T15:07:30Z",
+          "t": "2026-08-24T15:07:18Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-24T16:34:25Z",
           "eq": 50.0
         }
       ],
       "fills": []
     },
     {
-      "id": "basis_squeeze",
-      "name": "Basis squeeze",
-      "subtitle": "Ride le funding crowded, pas fade",
-      "kind": "livre",
-      "equity": 49.285,
-      "start": 50.0,
-      "pnl": -0.7150000000000034,
-      "pnl_pct": -1.430000000000009,
-      "high_water": 50.0,
-      "max_dd": 1.43,
-      "trades": 0,
-      "fees": 0.7150000000000001,
-      "status": "active",
-      "last_reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92",
-      "time_to_100": null,
-      "position": {
-        "symbol": "PF_ZECUSD",
-        "side": "long",
-        "size": 0.3192481330546486,
-        "entry": 861.39892931786,
-        "mark": 861.39892931786,
-        "leverage": 10,
-        "stop": 809.7149935587885,
-        "take_profit": null,
-        "margin": 27.500000000000004,
-        "notional": 275.00000000000006
-      },
-      "log": [
-        {
-          "ts": "2026-08-24T15:07:18Z",
-          "action": "open",
-          "symbol": "PF_ZECUSD",
-          "side": "long",
-          "size": 0.3192481330546486,
-          "price": 861.39892931786,
-          "notional": 275.00000000000006,
-          "fee": 0.7150000000000001,
-          "pnl": 0.0,
-          "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92",
-          "equity_after": 49.285,
-          "stop": 809.7149935587885,
-          "take_profit": null,
-          "margin": 27.500000000000004
-        }
-      ],
-      "tag": "SQ",
-      "color": "#6ea8ff",
-      "hist": [
-        {
-          "t": "2026-08-23T21:18:54Z",
-          "eq": 50.0
-        },
-        {
-          "t": "2026-08-23T21:35:18Z",
-          "eq": 50.0
-        },
-        {
-          "t": "2026-08-24T15:07:30Z",
-          "eq": 49.285
-        }
-      ],
-      "fills": [
-        {
-          "t": "2026-08-24T15:07:18Z",
-          "kind": "open",
-          "side": "long",
-          "symbol": "PF_ZECUSD",
-          "eq": 49.285,
-          "price": 861.39892931786,
-          "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92"
-        }
-      ]
-    },
-    {
       "id": "antimart_residual",
       "name": "Anti-martingale",
       "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 44.95697017,
+      "equity": 44.47699704,
       "start": 50.0,
-      "pnl": -5.043029830000002,
-      "pnl_pct": -10.086059660000002,
+      "pnl": -5.5230029599999995,
+      "pnl_pct": -11.046005920000002,
       "high_water": 50.0,
-      "max_dd": 10.08606,
+      "max_dd": 11.046006,
       "trades": 0,
       "fees": 0.52,
       "status": "active",
@@ -360,7 +294,7 @@
         "side": "long",
         "size": 480.34755302798504,
         "entry": 0.41636518962,
-        "mark": 0.40694902875,
+        "mark": 0.40594980824,
         "leverage": 10,
         "stop": 0.3950399767423455,
         "take_profit": null,
@@ -393,8 +327,12 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-24T15:07:30Z",
+          "t": "2026-08-24T15:07:18Z",
           "eq": 44.957
+        },
+        {
+          "t": "2026-08-24T16:34:25Z",
+          "eq": 44.477
         }
       ],
       "fills": [
@@ -410,16 +348,105 @@
       ]
     },
     {
+      "id": "basis_squeeze",
+      "name": "Basis squeeze",
+      "subtitle": "Ride le funding crowded, pas fade",
+      "kind": "livre",
+      "equity": 42.83167753,
+      "start": 50.0,
+      "pnl": -7.16832247,
+      "pnl_pct": -14.33664494,
+      "high_water": 50.0,
+      "max_dd": 14.336645,
+      "trades": 1,
+      "fees": 1.4150414694102325,
+      "status": "active",
+      "last_reason": "squeeze_over",
+      "time_to_100": null,
+      "position": null,
+      "log": [
+        {
+          "ts": "2026-08-24T15:07:18Z",
+          "action": "open",
+          "symbol": "PF_ZECUSD",
+          "side": "long",
+          "size": 0.3192481330546486,
+          "price": 861.39892931786,
+          "notional": 275.00000000000006,
+          "fee": 0.7150000000000001,
+          "pnl": 0.0,
+          "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92",
+          "equity_after": 49.285,
+          "stop": 809.7149935587885,
+          "take_profit": null,
+          "margin": 27.500000000000004
+        },
+        {
+          "ts": "2026-08-24T16:34:02Z",
+          "action": "close",
+          "symbol": "PF_ZECUSD",
+          "side": "long",
+          "size": 0.3192481330546486,
+          "price": 843.37758353577,
+          "notional": 269.24671900393554,
+          "fee": 0.7000414694102324,
+          "pnl": -5.75328099606452,
+          "reason": "squeeze_over",
+          "equity_after": 42.83167753452524
+        }
+      ],
+      "tag": "SQ",
+      "color": "#6ea8ff",
+      "hist": [
+        {
+          "t": "2026-08-23T21:18:54Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-23T21:35:18Z",
+          "eq": 50.0
+        },
+        {
+          "t": "2026-08-24T15:07:18Z",
+          "eq": 49.285
+        },
+        {
+          "t": "2026-08-24T16:34:25Z",
+          "eq": 42.8317
+        }
+      ],
+      "fills": [
+        {
+          "t": "2026-08-24T15:07:18Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_ZECUSD",
+          "eq": 49.285,
+          "price": 861.39892931786,
+          "reason": "squeeze_ride PF_ZECUSD fr=0.0098725352683125 chg=0.92"
+        },
+        {
+          "t": "2026-08-24T16:34:02Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_ZECUSD",
+          "eq": 42.83167753452524,
+          "price": 843.37758353577,
+          "reason": "squeeze_over"
+        }
+      ]
+    },
+    {
       "id": "residual_gated",
       "name": "Residual + gate BTC",
       "subtitle": "M\u00eame residual, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 43.06583398,
+      "equity": 42.40587093,
       "start": 50.0,
-      "pnl": -6.934166019999999,
-      "pnl_pct": -13.868332039999999,
+      "pnl": -7.594129070000001,
+      "pnl_pct": -15.188258139999999,
       "high_water": 50.0,
-      "max_dd": 13.868332,
+      "max_dd": 15.188258,
       "trades": 0,
       "fees": 0.7150000000000001,
       "status": "active",
@@ -430,7 +457,7 @@
         "side": "long",
         "size": 660.4778854134795,
         "entry": 0.41636518962,
-        "mark": 0.40694902875,
+        "mark": 0.40594980824,
         "leverage": 10,
         "stop": 0.3950399767423455,
         "take_profit": null,
@@ -463,8 +490,12 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-24T15:07:30Z",
+          "t": "2026-08-24T15:07:18Z",
           "eq": 43.0658
+        },
+        {
+          "t": "2026-08-24T16:34:25Z",
+          "eq": 42.4059
         }
       ],
       "fills": [
@@ -484,12 +515,12 @@
       "name": "Residual hold",
       "subtitle": "24h moins BTC, trail ATR, on ne coupe pas",
       "kind": "livre",
-      "equity": 42.43545525,
+      "equity": 41.71549556,
       "start": 50.0,
-      "pnl": -7.564544750000003,
-      "pnl_pct": -15.129089500000003,
+      "pnl": -8.28450444,
+      "pnl_pct": -16.569008880000002,
       "high_water": 50.0,
-      "max_dd": 15.129089,
+      "max_dd": 16.569009,
       "trades": 0,
       "fees": 0.7799999999999999,
       "status": "active",
@@ -500,7 +531,7 @@
         "side": "long",
         "size": 720.5213295419776,
         "entry": 0.41636518962,
-        "mark": 0.40694902875,
+        "mark": 0.40594980824,
         "leverage": 10,
         "stop": 0.3950399767423455,
         "take_profit": null,
@@ -533,8 +564,12 @@
           "eq": 50.0
         },
         {
-          "t": "2026-08-24T15:07:30Z",
+          "t": "2026-08-24T15:07:18Z",
           "eq": 42.4355
+        },
+        {
+          "t": "2026-08-24T16:34:25Z",
+          "eq": 41.7155
         }
       ],
       "fills": [
