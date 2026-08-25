@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-08-25T14:03:11.734178+02:00",
+  "generated_at": "2026-08-25T14:35:42.636698+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 40,
+  "ticks": 41,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 SOL 10x",
     "kind": "temoin",
-    "equity": 43.742298845903825,
+    "equity": 42.74098908727885,
     "start": 50.0,
-    "pnl": -6.257701154096175,
-    "pnl_pct": -12.515402308192346,
+    "pnl": -7.259010912721152,
+    "pnl_pct": -14.518021825442307,
     "collateral": 41.10145346480133,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 2.75,
       "entry": 97.55,
-      "mark": 98.51030741131,
+      "mark": 98.14619477181,
       "leverage": 10.0,
       "liq": 89.746,
-      "u_pnl": 2.640845381102494,
+      "u_pnl": 1.6395356224775135,
       "stop": 91.7,
       "take_profit": 103.4
     },
@@ -62,7 +62,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 43.74$ \u2014 long SOL @ 97.55"
+        "e": "Stack 42.74$ \u2014 long SOL @ 97.55"
       }
     ],
     "orders": [
@@ -456,6 +456,10 @@
       {
         "t": "2026-08-25T12:03:11Z",
         "eq": 43.7423
+      },
+      {
+        "t": "2026-08-25T12:35:42Z",
+        "eq": 42.741
       }
     ]
   },
@@ -465,11 +469,11 @@
       "name": "Wick fade",
       "subtitle": "Fade la m\u00e8che de liq, stop derri\u00e8re",
       "kind": "livre",
-      "equity": 58.06464594,
+      "equity": 59.56991476,
       "start": 50.0,
-      "pnl": 8.064645939999998,
-      "pnl_pct": 16.129291880000007,
-      "high_water": 58.06464594,
+      "pnl": 9.569914760000003,
+      "pnl_pct": 19.139829519999996,
+      "high_water": 59.56991476,
       "max_dd": 5.256652,
       "trades": 0,
       "fees": 0.7150000000000001,
@@ -481,7 +485,7 @@
         "side": "short",
         "size": 179.95325169114042,
         "entry": 1.52817466434,
-        "mark": 1.47938618258,
+        "mark": 1.47102140559,
         "leverage": 10,
         "stop": 1.5543591299999997,
         "take_profit": 1.4593546643400002,
@@ -662,8 +666,12 @@
           "eq": 57.171
         },
         {
-          "t": "2026-08-25T12:03:11Z",
+          "t": "2026-08-25T12:03:09Z",
           "eq": 58.0646
+        },
+        {
+          "t": "2026-08-25T12:35:42Z",
+          "eq": 59.5699
         }
       ],
       "fills": [
@@ -683,28 +691,28 @@
       "name": "Anti-martingale",
       "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 45.24124481,
+      "equity": 43.05338655,
       "start": 50.0,
-      "pnl": -4.758755190000002,
-      "pnl_pct": -9.517510380000004,
+      "pnl": -6.946613450000001,
+      "pnl_pct": -13.8932269,
       "high_water": 54.63962628,
-      "max_dd": 18.680906,
-      "trades": 2,
-      "fees": 2.9174676191537703,
+      "max_dd": 21.20483,
+      "trades": 3,
+      "fees": 4.3340168642319865,
       "status": "active",
-      "last_reason": "trail r=2.2",
+      "last_reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.68",
       "time_to_100": null,
       "position": {
         "symbol": "PF_SOLUSD",
         "side": "long",
-        "size": 2.5133296194591437,
-        "entry": 98.07791160426,
-        "mark": 98.50108849259,
+        "size": 3.0351307405741204,
+        "entry": 98.19420116018,
+        "mark": 98.19420116018,
         "leverage": 10,
-        "stop": 98.46110433221612,
+        "stop": 94.41480240135613,
         "take_profit": null,
-        "margin": 24.650212024968233,
-        "notional": 246.50212024968232
+        "margin": 29.803223848738128,
+        "notional": 298.0322384873813
       },
       "log": [
         {
@@ -780,6 +788,35 @@
           "stop": 94.79635130412909,
           "take_profit": null,
           "margin": 24.650212024968233
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "close",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 2.5133296194591437,
+          "price": 98.19420116018,
+          "notional": 246.7943942350098,
+          "fee": 0.6416654250110254,
+          "pnl": 0.29227398532749954,
+          "reason": "stop",
+          "equity_after": 43.82827036579136
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "open",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 3.0351307405741204,
+          "price": 98.19420116018,
+          "notional": 298.0322384873813,
+          "fee": 0.7748838200671913,
+          "pnl": 0.0,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.68",
+          "equity_after": 43.053386545724166,
+          "stop": 94.41480240135613,
+          "take_profit": null,
+          "margin": 29.803223848738128
         }
       ],
       "tag": "AM",
@@ -942,8 +979,12 @@
           "eq": 46.5452
         },
         {
-          "t": "2026-08-25T12:03:11Z",
+          "t": "2026-08-25T12:03:09Z",
           "eq": 45.2412
+        },
+        {
+          "t": "2026-08-25T12:35:42Z",
+          "eq": 43.0534
         }
       ],
       "fills": [
@@ -991,6 +1032,24 @@
           "eq": 44.177661805474884,
           "price": 98.07791160426,
           "reason": "leader_gave_up PF_VIRTUALUSD r=7.2 -> PF_SOLUSD r=9.2"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 43.82827036579136,
+          "price": 98.19420116018,
+          "reason": "stop"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 43.053386545724166,
+          "price": 98.19420116018,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.68"
         }
       ]
     },
@@ -999,28 +1058,28 @@
       "name": "Residual + gate BTC",
       "subtitle": "M\u00eame residual, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 42.85695176,
+      "equity": 40.75219133,
       "start": 50.0,
-      "pnl": -7.143048239999999,
-      "pnl_pct": -14.28609648,
+      "pnl": -9.247808669999998,
+      "pnl_pct": -18.495617339999992,
       "high_water": 52.56114987,
       "max_dd": 25.686246,
-      "trades": 2,
-      "fees": 3.360241682664303,
+      "trades": 3,
+      "fees": 4.668595245966029,
       "status": "active",
-      "last_reason": "trail r=2.2",
+      "last_reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.60",
       "time_to_100": null,
       "position": {
         "symbol": "PF_SOLUSD",
         "side": "long",
-        "size": 2.595111576733102,
-        "entry": 98.07791160426,
-        "mark": 98.50108849259,
+        "size": 2.5295587501972268,
+        "entry": 98.19420116018,
+        "mark": 98.19420116018,
         "leverage": 10,
-        "stop": 98.46110433221612,
+        "stop": 94.41480240135613,
         "take_profit": null,
-        "margin": 25.452312382602095,
-        "notional": 254.52312382602094
+        "margin": 24.838800076336,
+        "notional": 248.38800076336
       },
       "log": [
         {
@@ -1096,6 +1155,35 @@
           "stop": 94.79635130412909,
           "take_profit": null,
           "margin": 25.452312382602095
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "close",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 2.595111576733102,
+          "price": 98.19420116018,
+          "notional": 254.8249081988421,
+          "fee": 0.6625447613169895,
+          "pnl": 0.301784372821157,
+          "reason": "stop",
+          "equity_after": 41.398000127226666
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "open",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 2.5295587501972268,
+          "price": 98.19420116018,
+          "notional": 248.38800076336,
+          "fee": 0.645808801984736,
+          "pnl": 0.0,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.60",
+          "equity_after": 40.75219132524193,
+          "stop": 94.41480240135613,
+          "take_profit": null,
+          "margin": 24.838800076336
         }
       ],
       "tag": "GT",
@@ -1258,8 +1346,12 @@
           "eq": 44.2033
         },
         {
-          "t": "2026-08-25T12:03:11Z",
+          "t": "2026-08-25T12:03:09Z",
           "eq": 42.857
+        },
+        {
+          "t": "2026-08-25T12:35:42Z",
+          "eq": 40.7522
         }
       ],
       "fills": [
@@ -1307,6 +1399,24 @@
           "eq": 41.7587605157225,
           "price": 98.07791160426,
           "reason": "leader_gave_up PF_VIRTUALUSD r=7.2 -> PF_SOLUSD r=9.2"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 41.398000127226666,
+          "price": 98.19420116018,
+          "reason": "stop"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 40.75219132524193,
+          "price": 98.19420116018,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.60"
         }
       ]
     },
@@ -1315,28 +1425,28 @@
       "name": "Residual hold",
       "subtitle": "24h moins BTC, trail ATR, on ne coupe pas",
       "kind": "livre",
-      "equity": 42.1567839,
+      "equity": 39.91719551,
       "start": 50.0,
-      "pnl": -7.843216099999999,
-      "pnl_pct": -15.6864322,
+      "pnl": -10.082804490000001,
+      "pnl_pct": -20.165608980000005,
       "high_water": 52.48914461,
       "max_dd": 28.021359,
-      "trades": 2,
-      "fees": 3.6110288993707664,
+      "trades": 3,
+      "fees": 5.002658194886427,
       "status": "active",
-      "last_reason": "trail r=2.2",
+      "last_reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.65",
       "time_to_100": null,
       "position": {
         "symbol": "PF_SOLUSD",
         "side": "long",
-        "size": 2.763095783478316,
-        "entry": 98.07791160426,
-        "mark": 98.50108849259,
+        "size": 2.687756002195619,
+        "entry": 98.19420116018,
+        "mark": 98.19420116018,
         "leverage": 10,
-        "stop": 98.46110433221612,
+        "stop": 94.41480240135613,
         "take_profit": null,
-        "margin": 27.099866400608978,
-        "notional": 270.99866400608977
+        "margin": 26.39220535490778,
+        "notional": 263.9220535490778
       },
       "log": [
         {
@@ -1412,6 +1522,35 @@
           "stop": 94.79635130412909,
           "take_profit": null,
           "margin": 27.099866400608978
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "close",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 2.763095783478316,
+          "price": 98.19420116018,
+          "notional": 271.3199831877149,
+          "fee": 0.7054319562880588,
+          "pnl": 0.3213191816251323,
+          "reason": "stop",
+          "equity_after": 40.60339285370428
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "open",
+          "symbol": "PF_SOLUSD",
+          "side": "long",
+          "size": 2.687756002195619,
+          "price": 98.19420116018,
+          "notional": 263.9220535490778,
+          "fee": 0.6861973392276023,
+          "pnl": 0.0,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.65",
+          "equity_after": 39.917195514476674,
+          "stop": 94.41480240135613,
+          "take_profit": null,
+          "margin": 26.39220535490778
         }
       ],
       "tag": "RH",
@@ -1574,8 +1713,12 @@
           "eq": 43.5903
         },
         {
-          "t": "2026-08-25T12:03:11Z",
+          "t": "2026-08-25T12:03:09Z",
           "eq": 42.1568
+        },
+        {
+          "t": "2026-08-25T12:35:42Z",
+          "eq": 39.9172
         }
       ],
       "fills": [
@@ -1623,6 +1766,24 @@
           "eq": 40.98750562836721,
           "price": 98.07791160426,
           "reason": "leader_gave_up PF_VIRTUALUSD r=7.2 -> PF_SOLUSD r=9.2"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 40.60339285370428,
+          "price": 98.19420116018,
+          "reason": "stop"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_SOLUSD",
+          "eq": 39.917195514476674,
+          "price": 98.19420116018,
+          "reason": "residual PF_SOLUSD r=10.1 btc=0.4 frac=0.65"
         }
       ]
     },
@@ -1631,43 +1792,19 @@
       "name": "Basis squeeze",
       "subtitle": "Ride le funding crowded, pas fade",
       "kind": "livre",
-      "equity": 19.05345235,
+      "equity": 18.39795571,
       "start": 50.0,
-      "pnl": -30.94654765,
-      "pnl_pct": -61.8930953,
+      "pnl": -31.60204429,
+      "pnl_pct": -63.20408858,
       "high_water": 50.0,
-      "max_dd": 61.893094999999995,
-      "trades": 12,
-      "fees": 13.617393145521666,
+      "max_dd": 63.204088999999996,
+      "trades": 13,
+      "fees": 13.944076981738787,
       "status": "active",
-      "last_reason": "squeeze_rotate PF_WLDUSD->PF_ETHUSD fr=0.010702858159582508",
+      "last_reason": "squeeze_over",
       "time_to_100": null,
-      "position": {
-        "symbol": "PF_ETHUSD",
-        "side": "long",
-        "size": 0.05087840125496866,
-        "entry": 2476.0298871195,
-        "mark": 2476.0298871195,
-        "leverage": 10,
-        "stop": 2416.5520374536522,
-        "take_profit": null,
-        "margin": 12.597644211616068,
-        "notional": 125.97644211616068
-      },
+      "position": null,
       "log": [
-        {
-          "ts": "2026-08-25T07:05:25Z",
-          "action": "close",
-          "symbol": "PF_HYPEUSD",
-          "side": "long",
-          "size": 2.36852157548545,
-          "price": 81.08615936552,
-          "notional": 192.0543179304857,
-          "fee": 0.4993412266192628,
-          "pnl": 0.3209999458353538,
-          "reason": "squeeze_rotate PF_HYPEUSD->PF_TAOUSD fr=0.01105120496085",
-          "equity_after": 28.820585628556053
-        },
         {
           "ts": "2026-08-25T07:05:25Z",
           "action": "open",
@@ -1770,6 +1907,19 @@
           "stop": 2416.5520374536522,
           "take_profit": null,
           "margin": 12.597644211616068
+        },
+        {
+          "ts": "2026-08-25T12:35:40Z",
+          "action": "close",
+          "symbol": "PF_ETHUSD",
+          "side": "long",
+          "size": 0.05087840125496866,
+          "price": 2469.56716828847,
+          "notional": 125.6476293142775,
+          "fee": 0.3266838362171215,
+          "pnl": -0.32881280188319084,
+          "reason": "squeeze_over",
+          "equity_after": 18.39795570719162
         }
       ],
       "tag": "SQ",
@@ -1936,8 +2086,12 @@
           "eq": 20.9075
         },
         {
-          "t": "2026-08-25T12:03:11Z",
+          "t": "2026-08-25T12:03:09Z",
           "eq": 19.0535
+        },
+        {
+          "t": "2026-08-25T12:35:42Z",
+          "eq": 18.398
         }
       ],
       "fills": [
@@ -2165,6 +2319,15 @@
           "eq": 19.05345234529193,
           "price": 2476.0298871195,
           "reason": "squeeze_rotate PF_WLDUSD->PF_ETHUSD fr=0.010702858159582508"
+        },
+        {
+          "t": "2026-08-25T12:35:40Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_ETHUSD",
+          "eq": 18.39795570719162,
+          "price": 2469.56716828847,
+          "reason": "squeeze_over"
         }
       ]
     }
