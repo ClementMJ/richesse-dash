@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-08-26T21:41:23.467868+02:00",
+  "generated_at": "2026-08-26T22:11:58.625220+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 103,
+  "ticks": 104,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 ZEC 10x",
     "kind": "temoin",
-    "equity": 31.71022748118991,
+    "equity": 31.89698447618071,
     "start": 50.0,
-    "pnl": -18.28977251881009,
-    "pnl_pct": -36.57954503762018,
+    "pnl": -18.10301552381929,
+    "pnl_pct": -36.20603104763859,
     "collateral": 31.69000710942351,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 0.26,
       "entry": 782.51,
-      "mark": 782.51601448899,
+      "mark": 783.35155280843,
       "leverage": 10.0,
       "liq": 719.9092,
-      "u_pnl": 0.0015637671373974627,
+      "u_pnl": 0.2188037301918098,
       "stop": 735.56,
       "take_profit": 829.46
     },
@@ -62,7 +62,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 31.71$ \u2014 long ZEC @ 782.51"
+        "e": "Stack 31.90$ \u2014 long ZEC @ 782.51"
       }
     ],
     "orders": [
@@ -644,6 +644,10 @@
       {
         "t": "2026-08-26T19:41:23Z",
         "eq": 31.7102
+      },
+      {
+        "t": "2026-08-26T20:11:58Z",
+        "eq": 31.897
       }
     ]
   },
@@ -653,10 +657,10 @@
       "name": "Wick fade",
       "subtitle": "Fade m\u00e8che 1h, time-stop 6h sous l'eau / 12h max",
       "kind": "livre",
-      "equity": 53.67130482,
+      "equity": 54.01201766,
       "start": 50.0,
-      "pnl": 3.671304820000003,
-      "pnl_pct": 7.342609639999997,
+      "pnl": 4.012017659999998,
+      "pnl_pct": 8.02403532,
       "high_water": 63.2866495,
       "max_dd": 26.088966000000003,
       "trades": 3,
@@ -669,7 +673,7 @@
         "side": "long",
         "size": 0.3496646267816751,
         "entry": 766.03817961716,
-        "mark": 782.24387409054,
+        "mark": 783.2182730427,
         "leverage": 10,
         "stop": 757.72,
         "take_profit": 799.7431796171601,
@@ -1189,8 +1193,12 @@
           "eq": 53.3266
         },
         {
-          "t": "2026-08-26T19:41:23Z",
+          "t": "2026-08-26T19:41:14Z",
           "eq": 53.6713
+        },
+        {
+          "t": "2026-08-26T20:11:58Z",
+          "eq": 54.012
         }
       ],
       "fills": [
@@ -1264,35 +1272,30 @@
       "name": "Anti-martingale",
       "subtitle": "Residual 4h midcaps, size apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 50.37148805,
+      "equity": 49.48092015,
       "start": 50.0,
-      "pnl": 0.3714880500000035,
-      "pnl_pct": 0.7429761000000035,
+      "pnl": -0.5190798499999971,
+      "pnl_pct": -1.0381596999999965,
       "high_water": 54.63962628,
       "max_dd": 48.12785,
       "trades": 8,
-      "fees": 10.494898693227336,
+      "fees": 11.38546660203923,
       "status": "active",
-      "last_reason": "residual_died r=-1.1",
+      "last_reason": "residual PF_ZECUSD r=9.1 btc=0.6 frac=0.68",
       "time_to_100": null,
-      "position": null,
+      "position": {
+        "symbol": "PF_ZECUSD",
+        "side": "long",
+        "size": 0.4373316233329652,
+        "entry": 783.2182730427,
+        "mark": 783.2182730427,
+        "leverage": 10,
+        "stop": 746.9676761441848,
+        "take_profit": null,
+        "margin": 34.25261187738056,
+        "notional": 342.5261187738056
+      },
       "log": [
-        {
-          "ts": "2026-08-25T16:03:00Z",
-          "action": "open",
-          "symbol": "PF_XMRUSD",
-          "side": "long",
-          "size": 0.6476056496170188,
-          "price": 448.04195293188,
-          "notional": 290.15449998412794,
-          "fee": 0.7544016999587326,
-          "pnl": 0.0,
-          "reason": "leader_gave_up PF_SOLUSD r=1.4 -> PF_XMRUSD r=5.7",
-          "equity_after": 41.91537770947184,
-          "stop": 430.8531116923537,
-          "take_profit": null,
-          "margin": 29.015449998412794
-        },
         {
           "ts": "2026-08-25T17:08:05Z",
           "action": "close",
@@ -1392,6 +1395,22 @@
           "pnl": 0.40396084638140894,
           "reason": "residual_died r=-1.1",
           "equity_after": 50.37148805497141
+        },
+        {
+          "ts": "2026-08-26T20:11:51Z",
+          "action": "open",
+          "symbol": "PF_ZECUSD",
+          "side": "long",
+          "size": 0.4373316233329652,
+          "price": 783.2182730427,
+          "notional": 342.5261187738056,
+          "fee": 0.8905679088118945,
+          "pnl": 0.0,
+          "reason": "residual PF_ZECUSD r=9.1 btc=0.6 frac=0.68",
+          "equity_after": 49.48092014615951,
+          "stop": 746.9676761441848,
+          "take_profit": null,
+          "margin": 34.25261187738056
         }
       ],
       "tag": "AM",
@@ -1806,8 +1825,12 @@
           "eq": 50.8009
         },
         {
-          "t": "2026-08-26T19:41:23Z",
+          "t": "2026-08-26T19:41:14Z",
           "eq": 50.3715
+        },
+        {
+          "t": "2026-08-26T20:11:58Z",
+          "eq": 49.4809
         }
       ],
       "fills": [
@@ -1954,6 +1977,15 @@
           "eq": 50.37148805497141,
           "price": 782.24387409054,
           "reason": "residual_died r=-1.1"
+        },
+        {
+          "t": "2026-08-26T20:11:51Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_ZECUSD",
+          "eq": 49.48092014615951,
+          "price": 783.2182730427,
+          "reason": "residual PF_ZECUSD r=9.1 btc=0.6 frac=0.68"
         }
       ]
     },
@@ -1962,25 +1994,25 @@
       "name": "Residual + gate BTC",
       "subtitle": "24h majors only, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 39.59407811,
+      "equity": 39.89277088,
       "start": 50.0,
-      "pnl": -10.405921890000002,
-      "pnl_pct": -20.811843780000004,
+      "pnl": -10.10722912,
+      "pnl_pct": -20.21445824,
       "high_water": 54.47010216,
       "max_dd": 45.908442,
       "trades": 8,
       "fees": 10.914977225218136,
       "status": "active",
-      "last_reason": "trail r=0.5",
+      "last_reason": "trail r=0.4",
       "time_to_100": null,
       "position": {
         "symbol": "PF_ZECUSD",
         "side": "long",
         "size": 0.3065405253857202,
         "entry": 781.25801974782,
-        "mark": 782.24387409054,
+        "mark": 783.2182730427,
         "leverage": 10,
-        "stop": 744.9220774306004,
+        "stop": 746.9676761441848,
         "take_profit": null,
         "margin": 23.948724383530408,
         "notional": 239.48724383530407
@@ -2515,8 +2547,12 @@
           "eq": 39.2919
         },
         {
-          "t": "2026-08-26T19:41:23Z",
+          "t": "2026-08-26T19:41:14Z",
           "eq": 39.5941
+        },
+        {
+          "t": "2026-08-26T20:11:58Z",
+          "eq": 39.8928
         }
       ],
       "fills": [
@@ -2680,25 +2716,25 @@
       "name": "Residual hold",
       "subtitle": "24h vs BTC, liquid, pas de meme, on ne rotate pas",
       "kind": "livre",
-      "equity": 37.85826156,
+      "equity": 38.1678682,
       "start": 50.0,
-      "pnl": -12.141738439999997,
-      "pnl_pct": -24.28347688,
+      "pnl": -11.832131799999999,
+      "pnl_pct": -23.6642636,
       "high_water": 53.71272299,
       "max_dd": 48.667462,
       "trades": 8,
       "fees": 11.581445253517712,
       "status": "active",
-      "last_reason": "trail r=0.5",
+      "last_reason": "trail r=0.4",
       "time_to_100": null,
       "position": {
         "symbol": "PF_ZECUSD",
         "side": "long",
         "size": 0.3177411441687126,
         "entry": 781.25801974782,
-        "mark": 782.24387409054,
+        "mark": 783.2182730427,
         "leverage": 10,
-        "stop": 744.9220774306004,
+        "stop": 746.9676761441848,
         "take_profit": null,
         "margin": 24.823781708565495,
         "notional": 248.23781708565494
@@ -3233,8 +3269,12 @@
           "eq": 37.545
         },
         {
-          "t": "2026-08-26T19:41:23Z",
+          "t": "2026-08-26T19:41:14Z",
           "eq": 37.8583
+        },
+        {
+          "t": "2026-08-26T20:11:58Z",
+          "eq": 38.1679
         }
       ],
       "fills": [
@@ -3944,7 +3984,11 @@
           "eq": 10.9762
         },
         {
-          "t": "2026-08-26T19:41:23Z",
+          "t": "2026-08-26T19:41:14Z",
+          "eq": 10.9762
+        },
+        {
+          "t": "2026-08-26T20:11:58Z",
           "eq": 10.9762
         }
       ],
