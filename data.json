@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-26T03:06:28.750647+02:00",
+  "generated_at": "2026-08-26T03:38:47.918953+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 66,
+  "ticks": 67,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
@@ -528,7 +528,7 @@
         "eq": 34.0006
       },
       {
-        "t": "2026-08-26T01:06:28Z",
+        "t": "2026-08-26T01:38:47Z",
         "eq": 34.0006
       }
     ]
@@ -539,10 +539,10 @@
       "name": "Wick fade",
       "subtitle": "Fade la m\u00e8che de liq, stop derri\u00e8re",
       "kind": "livre",
-      "equity": 59.92464505,
+      "equity": 60.21690684,
       "start": 50.0,
-      "pnl": 9.924645050000002,
-      "pnl_pct": 19.849290100000005,
+      "pnl": 10.21690684,
+      "pnl_pct": 20.43381367999999,
       "high_water": 63.2866495,
       "max_dd": 9.385036,
       "trades": 1,
@@ -555,7 +555,7 @@
         "side": "long",
         "size": 0.1369906492277322,
         "entry": 2460.6274622903,
-        "mark": 2457.07430728193,
+        "mark": 2459.20775060929,
         "leverage": 10,
         "stop": 2431.49357,
         "take_profit": 2517.2374622903008,
@@ -869,8 +869,12 @@
           "eq": 58.4282
         },
         {
-          "t": "2026-08-26T01:06:28Z",
+          "t": "2026-08-26T01:06:17Z",
           "eq": 59.9246
+        },
+        {
+          "t": "2026-08-26T01:38:47Z",
+          "eq": 60.2169
         }
       ],
       "fills": [
@@ -908,25 +912,25 @@
       "name": "Residual + gate BTC",
       "subtitle": "M\u00eame residual, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 34.5028881,
+      "equity": 37.74786299,
       "start": 50.0,
-      "pnl": -15.4971119,
-      "pnl_pct": -30.994223799999997,
+      "pnl": -12.252137009999998,
+      "pnl_pct": -24.504274019999993,
       "high_water": 52.56114987,
       "max_dd": 45.908442,
       "trades": 6,
       "fees": 8.122961136050137,
       "status": "active",
-      "last_reason": "trail r=3.7",
+      "last_reason": "trail r=6.4",
       "time_to_100": null,
       "position": {
         "symbol": "PF_FARTCOINUSD",
         "side": "long",
         "size": 955.4758666192826,
         "entry": 0.18136533117,
-        "mark": 0.18772001089,
+        "mark": 0.19111619807,
         "leverage": 10,
-        "stop": 0.17563451698665278,
+        "stop": 0.17867090079665277,
         "take_profit": null,
         "margin": 17.329019697434894,
         "notional": 173.29019697434893
@@ -1313,8 +1317,12 @@
           "eq": 33.2638
         },
         {
-          "t": "2026-08-26T01:06:28Z",
+          "t": "2026-08-26T01:06:17Z",
           "eq": 34.5029
+        },
+        {
+          "t": "2026-08-26T01:38:47Z",
+          "eq": 37.7479
         }
       ],
       "fills": [
@@ -1442,25 +1450,25 @@
       "name": "Anti-martingale",
       "subtitle": "Residual gated, 40\u219270% apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 33.88389117,
+      "equity": 36.84529237,
       "start": 50.0,
-      "pnl": -16.11610883,
-      "pnl_pct": -32.23221766,
+      "pnl": -13.154707629999997,
+      "pnl_pct": -26.30941525999999,
       "high_water": 54.63962628,
       "max_dd": 48.12785,
       "trades": 6,
       "fees": 8.356226793497944,
       "status": "active",
-      "last_reason": "trail r=3.7",
+      "last_reason": "trail r=6.4",
       "time_to_100": null,
       "position": {
         "symbol": "PF_FARTCOINUSD",
         "side": "long",
         "size": 871.9782046955937,
         "entry": 0.18136533117,
-        "mark": 0.18772001089,
+        "mark": 0.19111619807,
         "leverage": 10,
-        "stop": 0.17563451698665278,
+        "stop": 0.17867090079665277,
         "take_profit": null,
         "margin": 15.814661586763842,
         "notional": 158.14661586763842
@@ -1847,8 +1855,12 @@
           "eq": 32.7531
         },
         {
-          "t": "2026-08-26T01:06:28Z",
+          "t": "2026-08-26T01:06:17Z",
           "eq": 33.8839
+        },
+        {
+          "t": "2026-08-26T01:38:47Z",
+          "eq": 36.8453
         }
       ],
       "fills": [
@@ -1976,25 +1988,25 @@
       "name": "Residual hold",
       "subtitle": "24h moins BTC, trail ATR, on ne coupe pas",
       "kind": "livre",
-      "equity": 33.18591717,
+      "equity": 36.5218342,
       "start": 50.0,
-      "pnl": -16.814082829999997,
-      "pnl_pct": -33.62816566,
+      "pnl": -13.4781658,
+      "pnl_pct": -26.956331599999995,
       "high_water": 52.48914461,
       "max_dd": 48.667462,
       "trades": 6,
       "fees": 8.640153350024274,
       "status": "active",
-      "last_reason": "trail r=3.7",
+      "last_reason": "trail r=6.4",
       "time_to_100": null,
       "position": {
         "symbol": "PF_FARTCOINUSD",
         "side": "long",
         "size": 982.2535841554131,
         "entry": 0.18136533117,
-        "mark": 0.18772001089,
+        "mark": 0.19111619807,
         "leverage": 10,
-        "stop": 0.17563451698665278,
+        "stop": 0.17867090079665277,
         "take_profit": null,
         "margin": 17.8146746583266,
         "notional": 178.14674658326598
@@ -2381,8 +2393,12 @@
           "eq": 31.9121
         },
         {
-          "t": "2026-08-26T01:06:28Z",
+          "t": "2026-08-26T01:06:17Z",
           "eq": 33.1859
+        },
+        {
+          "t": "2026-08-26T01:38:47Z",
+          "eq": 36.5218
         }
       ],
       "fills": [
@@ -2908,7 +2924,11 @@
           "eq": 14.2493
         },
         {
-          "t": "2026-08-26T01:06:28Z",
+          "t": "2026-08-26T01:06:17Z",
+          "eq": 14.2493
+        },
+        {
+          "t": "2026-08-26T01:38:47Z",
           "eq": 14.2493
         }
       ],
