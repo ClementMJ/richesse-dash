@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-01T23:32:37.572981+02:00",
+  "generated_at": "2026-09-02T00:04:08.792964+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 246,
+  "ticks": 247,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 ZEC 10x",
     "kind": "temoin",
-    "equity": 30.967006524828054,
+    "equity": 32.034381271297846,
     "start": 50.0,
-    "pnl": -19.032993475171946,
-    "pnl_pct": -38.06598695034389,
+    "pnl": -17.965618728702154,
+    "pnl_pct": -35.93123745740431,
     "collateral": 28.63334035769246,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 0.23,
       "entry": 810.83,
-      "mark": 820.95822788878,
+      "mark": 825.53302573556,
       "leverage": 10.0,
       "liq": 745.9636,
-      "u_pnl": 2.3294924144193945,
+      "u_pnl": 3.381695919178801,
       "stop": 762.18,
       "take_profit": null
     },
@@ -62,7 +62,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 30.97$ \u2014 long ZEC @ 810.83"
+        "e": "Stack 32.03$ \u2014 long ZEC @ 810.83"
       }
     ],
     "orders": [
@@ -1203,6 +1203,10 @@
       {
         "t": "2026-09-01T21:32:37Z",
         "eq": 30.967
+      },
+      {
+        "t": "2026-09-01T22:04:08Z",
+        "eq": 32.0344
       }
     ]
   },
@@ -1212,10 +1216,10 @@
       "name": "Wick fade",
       "subtitle": "Fade m\u00e8che 1h, time-stop 6h sous l'eau / 12h max",
       "kind": "livre",
-      "equity": 22.93155004,
+      "equity": 21.94222509,
       "start": 50.0,
-      "pnl": -27.06844996,
-      "pnl_pct": -54.13689991999999,
+      "pnl": -28.05777491,
+      "pnl_pct": -56.11554982,
       "high_water": 67.76904654,
       "max_dd": 68.66965,
       "trades": 13,
@@ -1228,7 +1232,7 @@
         "side": "short",
         "size": 178.18750731317175,
         "entry": 0.71639903823,
-        "mark": 0.71609740565,
+        "mark": 0.72164956226,
         "leverage": 10,
         "stop": 0.7368037999999999,
         "take_profit": 0.7006490382299999,
@@ -2333,8 +2337,12 @@
           "eq": 22.1606
         },
         {
-          "t": "2026-09-01T21:32:37Z",
+          "t": "2026-09-01T21:32:26Z",
           "eq": 22.9316
+        },
+        {
+          "t": "2026-09-01T22:04:08Z",
+          "eq": 21.9422
         }
       ],
       "fills": [
@@ -2588,25 +2596,25 @@
       "name": "Residual hold",
       "subtitle": "24h vs BTC, liquid, pas de meme, on ne rotate pas",
       "kind": "livre",
-      "equity": 18.99077265,
+      "equity": 19.61938159,
       "start": 50.0,
-      "pnl": -31.00922735,
-      "pnl_pct": -62.01845470000001,
+      "pnl": -30.38061841,
+      "pnl_pct": -60.76123682000001,
       "high_water": 53.71272299,
       "max_dd": 72.097687,
       "trades": 15,
       "fees": 18.861710598511564,
       "status": "active",
-      "last_reason": "trail r=-1.8",
+      "last_reason": "trail r=-1.2",
       "time_to_100": null,
       "position": {
         "symbol": "PF_ZECUSD",
         "side": "long",
         "size": 0.13481383760167548,
         "entry": 801.35924613624,
-        "mark": 821.02338467902,
+        "mark": 825.68617713395,
         "leverage": 10,
-        "stop": 819.2034101621672,
+        "stop": 819.9918439404825,
         "take_profit": null,
         "margin": 10.803431526921214,
         "notional": 108.03431526921214
@@ -3713,8 +3721,12 @@
           "eq": 19.2751
         },
         {
-          "t": "2026-09-01T21:32:37Z",
+          "t": "2026-09-01T21:32:26Z",
           "eq": 18.9908
+        },
+        {
+          "t": "2026-09-01T22:04:08Z",
+          "eq": 19.6194
         }
       ],
       "fills": [
@@ -5118,7 +5130,11 @@
           "eq": 17.8714
         },
         {
-          "t": "2026-09-01T21:32:37Z",
+          "t": "2026-09-01T21:32:26Z",
+          "eq": 17.8714
+        },
+        {
+          "t": "2026-09-01T22:04:08Z",
           "eq": 17.8714
         }
       ],
@@ -5490,35 +5506,30 @@
       "name": "Anti-martingale",
       "subtitle": "Residual 4h midcaps, size apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 17.49242859,
+      "equity": 17.24228686,
       "start": 50.0,
-      "pnl": -32.50757141,
-      "pnl_pct": -65.01514282000001,
+      "pnl": -32.75771314,
+      "pnl_pct": -65.51542628,
       "high_water": 64.15817808,
-      "max_dd": 72.735466,
+      "max_dd": 73.125348,
       "trades": 35,
-      "fees": 39.793178697181254,
+      "fees": 40.04332042594991,
       "status": "active",
-      "last_reason": "residual_died r=-0.3",
+      "last_reason": "residual PF_SUIUSD r=7.7 btc=-0.8 frac=0.55",
       "time_to_100": null,
-      "position": null,
+      "position": {
+        "symbol": "PF_SUIUSD",
+        "side": "long",
+        "size": 133.31728064438335,
+        "entry": 0.72164956226,
+        "mark": 0.72164956226,
+        "leverage": 10,
+        "stop": 0.6997211667748474,
+        "take_profit": null,
+        "margin": 9.620835721871282,
+        "notional": 96.20835721871282
+      },
       "log": [
-        {
-          "ts": "2026-09-01T16:48:30Z",
-          "action": "open",
-          "symbol": "PF_SUIUSD",
-          "side": "long",
-          "size": 158.56011917589862,
-          "price": 0.72577691524,
-          "notional": 115.07927417557048,
-          "fee": 0.29920611285648324,
-          "pnl": 0.0,
-          "reason": "leader_gave_up PF_XRPUSD r=-0.0 -> PF_SUIUSD r=8.4",
-          "equity_after": 20.62429828270178,
-          "stop": 0.7055444115346132,
-          "take_profit": null,
-          "margin": 11.507927417557047
-        },
         {
           "ts": "2026-09-01T20:01:15Z",
           "action": "close",
@@ -5618,6 +5629,22 @@
           "pnl": -0.7731949755533549,
           "reason": "residual_died r=-0.3",
           "equity_after": 17.492428585220512
+        },
+        {
+          "ts": "2026-09-01T22:03:58Z",
+          "action": "open",
+          "symbol": "PF_SUIUSD",
+          "side": "long",
+          "size": 133.31728064438335,
+          "price": 0.72164956226,
+          "notional": 96.20835721871282,
+          "fee": 0.2501417287686533,
+          "pnl": 0.0,
+          "reason": "residual PF_SUIUSD r=7.7 btc=-0.8 frac=0.55",
+          "equity_after": 17.24228685645186,
+          "stop": 0.6997211667748474,
+          "take_profit": null,
+          "margin": 9.620835721871282
         }
       ],
       "tag": "AM",
@@ -6604,20 +6631,15 @@
           "eq": 18.5984
         },
         {
-          "t": "2026-09-01T21:32:37Z",
+          "t": "2026-09-01T21:32:26Z",
           "eq": 17.4924
+        },
+        {
+          "t": "2026-09-01T22:04:08Z",
+          "eq": 17.2423
         }
       ],
       "fills": [
-        {
-          "t": "2026-08-27T13:37:02Z",
-          "kind": "open",
-          "side": "long",
-          "symbol": "PF_TAOUSD",
-          "eq": 51.102362925484734,
-          "price": 256.26573884055,
-          "reason": "residual PF_TAOUSD r=2.5 btc=0.5 frac=0.70"
-        },
         {
           "t": "2026-08-27T16:04:42Z",
           "kind": "close",
@@ -6968,6 +6990,15 @@
           "eq": 17.492428585220512,
           "price": 0.71609740565,
           "reason": "residual_died r=-0.3"
+        },
+        {
+          "t": "2026-09-01T22:03:58Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_SUIUSD",
+          "eq": 17.24228685645186,
+          "price": 0.72164956226,
+          "reason": "residual PF_SUIUSD r=7.7 btc=-0.8 frac=0.55"
         }
       ]
     },
@@ -8094,7 +8125,11 @@
           "eq": 11.3696
         },
         {
-          "t": "2026-09-01T21:32:37Z",
+          "t": "2026-09-01T21:32:26Z",
+          "eq": 11.3696
+        },
+        {
+          "t": "2026-09-01T22:04:08Z",
           "eq": 11.3696
         }
       ],
