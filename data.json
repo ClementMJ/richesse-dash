@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-05T21:13:35.403458+02:00",
+  "generated_at": "2026-09-05T21:35:39.224182+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 408,
+  "ticks": 409,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 SOL 10x",
     "kind": "temoin",
-    "equity": 44.09179753038338,
+    "equity": 43.98965638488577,
     "start": 50.0,
-    "pnl": -5.908202469616619,
-    "pnl_pct": -11.816404939233237,
+    "pnl": -6.01034361511423,
+    "pnl_pct": -12.020687230228466,
     "collateral": 41.788590368866565,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 2.64,
       "entry": 102.96,
-      "mark": 103.83227037738,
+      "mark": 103.80446376422,
       "leverage": 10.0,
       "liq": 94.72319999999999,
-      "u_pnl": 2.302793796283213,
+      "u_pnl": 2.2293843375408247,
       "stop": 96.782,
       "take_profit": null
     },
@@ -62,7 +62,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 44.09$ \u2014 long SOL @ 102.96"
+        "e": "Stack 43.99$ \u2014 long SOL @ 102.96"
       }
     ],
     "orders": [
@@ -1759,6 +1759,10 @@
       {
         "t": "2026-09-05T19:13:35Z",
         "eq": 44.0918
+      },
+      {
+        "t": "2026-09-05T19:35:39Z",
+        "eq": 43.9897
       }
     ]
   },
@@ -1768,10 +1772,10 @@
       "name": "Residual hold",
       "subtitle": "24h vs BTC, liquid, pas de meme, on ne rotate pas",
       "kind": "livre",
-      "equity": 19.09689122,
+      "equity": 18.70970816,
       "start": 50.0,
-      "pnl": -30.90310878,
-      "pnl_pct": -61.80621756,
+      "pnl": -31.29029184,
+      "pnl_pct": -62.58058367999999,
       "high_water": 53.71272299,
       "max_dd": 83.059973,
       "trades": 20,
@@ -1784,7 +1788,7 @@
         "side": "long",
         "size": 0.08874641696510757,
         "entry": 949.5346706085,
-        "mark": 1021.10613033216,
+        "mark": 1016.74332820206,
         "leverage": 10,
         "stop": 997.1139965371068,
         "take_profit": null,
@@ -3541,8 +3545,12 @@
           "eq": 19.4776
         },
         {
-          "t": "2026-09-05T19:13:35Z",
+          "t": "2026-09-05T19:13:27Z",
           "eq": 19.0969
+        },
+        {
+          "t": "2026-09-05T19:35:39Z",
+          "eq": 18.7097
         }
       ],
       "fills": [
@@ -3913,10 +3921,10 @@
       "name": "Anti-martingale",
       "subtitle": "Residual 4h midcaps, size apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 13.93844223,
+      "equity": 14.14318653,
       "start": 50.0,
-      "pnl": -36.06155777,
-      "pnl_pct": -72.12311553999999,
+      "pnl": -35.85681347,
+      "pnl_pct": -71.71362694000001,
       "high_water": 64.15817808,
       "max_dd": 80.331907,
       "trades": 58,
@@ -3929,7 +3937,7 @@
         "side": "long",
         "size": 6.477265913134049,
         "entry": 12.03239278988,
-        "mark": 12.02787134785,
+        "mark": 12.059481028,
         "leverage": 10,
         "stop": 11.825824714795099,
         "take_profit": null,
@@ -5686,8 +5694,12 @@
           "eq": 13.9709
         },
         {
-          "t": "2026-09-05T19:13:35Z",
+          "t": "2026-09-05T19:13:27Z",
           "eq": 13.9384
+        },
+        {
+          "t": "2026-09-05T19:35:39Z",
+          "eq": 14.1432
         }
       ],
       "fills": [
@@ -6058,10 +6070,10 @@
       "name": "Wick fade",
       "subtitle": "Fade m\u00e8che 1h, time-stop 6h sous l'eau / 12h max",
       "kind": "livre",
-      "equity": 13.29791405,
+      "equity": 13.61716813,
       "start": 50.0,
-      "pnl": -36.70208595,
-      "pnl_pct": -73.40417190000001,
+      "pnl": -36.382831870000004,
+      "pnl_pct": -72.76566374,
       "high_water": 67.76904654,
       "max_dd": 83.447862,
       "trades": 24,
@@ -6074,7 +6086,7 @@
         "side": "short",
         "size": 1.0538068015613207,
         "entry": 67.91593277331,
-        "mark": 67.46877296708,
+        "mark": 67.1658198231,
         "leverage": 10,
         "stop": 71.496849,
         "take_profit": 61.84843277331,
@@ -7827,8 +7839,12 @@
           "eq": 13.3585
         },
         {
-          "t": "2026-09-05T19:13:35Z",
+          "t": "2026-09-05T19:13:27Z",
           "eq": 13.2979
+        },
+        {
+          "t": "2026-09-05T19:35:39Z",
+          "eq": 13.6172
         }
       ],
       "fills": [
@@ -8199,59 +8215,30 @@
       "name": "Residual + gate BTC",
       "subtitle": "24h majors only, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 12.424325,
+      "equity": 11.9926101,
       "start": 50.0,
-      "pnl": -37.575675000000004,
-      "pnl_pct": -75.15135,
+      "pnl": -38.0073899,
+      "pnl_pct": -76.0147798,
       "high_water": 54.47010216,
       "max_dd": 85.091173,
-      "trades": 45,
-      "fees": 34.89730793379905,
+      "trades": 46,
+      "fees": 35.28651303392878,
       "status": "active",
-      "last_reason": "trail r=12.0",
+      "last_reason": "leader_gave_up PF_NEARUSD r=5.0 -> PF_ADAUSD r=11.0",
       "time_to_100": null,
       "position": {
-        "symbol": "PF_NEARUSD",
+        "symbol": "PF_ADAUSD",
         "side": "long",
-        "size": 34.35676937817067,
-        "entry": 2.23595286913,
-        "mark": 2.23073423106,
+        "size": 331.3330407656678,
+        "entry": 0.22061173671,
+        "mark": 0.22061173671,
         "leverage": 10,
-        "stop": 2.1665575571441984,
+        "stop": 0.21475679577972173,
         "take_profit": null,
-        "margin": 7.682011706515844,
-        "notional": 76.82011706515844
+        "margin": 7.309595755271921,
+        "notional": 73.09595755271921
       },
       "log": [
-        {
-          "ts": "2026-09-03T00:23:39Z",
-          "action": "close",
-          "symbol": "PF_HYPEUSD",
-          "side": "long",
-          "size": 0.6202027038277753,
-          "price": 81.76437352582,
-          "notional": 50.71048553749774,
-          "fee": 0.1318472623974941,
-          "pnl": 0.07356233852233279,
-          "reason": "residual_died r=-1.2",
-          "equity_after": 8.249546275636735
-        },
-        {
-          "ts": "2026-09-03T02:04:18Z",
-          "action": "open",
-          "symbol": "PF_ADAUSD",
-          "side": "long",
-          "size": 242.31059052440318,
-          "price": 0.20427203593,
-          "notional": 49.497277653820404,
-          "fee": 0.12869292189993303,
-          "pnl": 0.0,
-          "reason": "residual PF_ADAUSD r=4.7 btc=0.4 frac=0.60",
-          "equity_after": 8.120853353736802,
-          "stop": 0.19797224730355745,
-          "take_profit": null,
-          "margin": 4.949727765382041
-        },
         {
           "ts": "2026-09-04T09:04:57Z",
           "action": "close",
@@ -8338,6 +8325,35 @@
           "stop": 2.1017956969822,
           "take_profit": null,
           "margin": 7.682011706515844
+        },
+        {
+          "ts": "2026-09-05T19:35:31Z",
+          "action": "close",
+          "symbol": "PF_NEARUSD",
+          "side": "long",
+          "size": 34.35676937817067,
+          "price": 2.22949692635,
+          "notional": 76.5983117279473,
+          "fee": 0.19915561049266298,
+          "pnl": -0.22180533721113177,
+          "reason": "leader_gave_up PF_NEARUSD r=5.0 -> PF_ADAUSD r=11.0",
+          "equity_after": 12.182659592119869
+        },
+        {
+          "ts": "2026-09-05T19:35:31Z",
+          "action": "open",
+          "symbol": "PF_ADAUSD",
+          "side": "long",
+          "size": 331.3330407656678,
+          "price": 0.22061173671,
+          "notional": 73.09595755271921,
+          "fee": 0.19004948963706994,
+          "pnl": 0.0,
+          "reason": "leader_gave_up PF_NEARUSD r=5.0 -> PF_ADAUSD r=11.0",
+          "equity_after": 11.9926101024828,
+          "stop": 0.21475679577972173,
+          "take_profit": null,
+          "margin": 7.309595755271921
         }
       ],
       "tag": "GT",
@@ -9972,29 +9988,15 @@
           "eq": 12.0602
         },
         {
-          "t": "2026-09-05T19:13:35Z",
+          "t": "2026-09-05T19:13:27Z",
           "eq": 12.4243
+        },
+        {
+          "t": "2026-09-05T19:35:39Z",
+          "eq": 11.9926
         }
       ],
       "fills": [
-        {
-          "t": "2026-09-02T02:13:39Z",
-          "kind": "close",
-          "side": "long",
-          "symbol": "PF_HYPEUSD",
-          "eq": 16.14642052926754,
-          "price": 82.30233682922,
-          "reason": "leader_gave_up PF_HYPEUSD r=-0.3 -> PF_SUIUSD r=7.9"
-        },
-        {
-          "t": "2026-09-02T02:13:39Z",
-          "kind": "open",
-          "side": "long",
-          "symbol": "PF_SUIUSD",
-          "eq": 15.894536369010968,
-          "price": 0.7165642985,
-          "reason": "leader_gave_up PF_HYPEUSD r=-0.3 -> PF_SUIUSD r=7.9"
-        },
         {
           "t": "2026-09-02T02:33:57Z",
           "kind": "close",
@@ -10336,6 +10338,24 @@
           "eq": 12.603620539823662,
           "price": 2.23595286913,
           "reason": "leader_gave_up PF_ZECUSD r=10.4 -> PF_NEARUSD r=24.6"
+        },
+        {
+          "t": "2026-09-05T19:35:31Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_NEARUSD",
+          "eq": 12.182659592119869,
+          "price": 2.22949692635,
+          "reason": "leader_gave_up PF_NEARUSD r=5.0 -> PF_ADAUSD r=11.0"
+        },
+        {
+          "t": "2026-09-05T19:35:31Z",
+          "kind": "open",
+          "side": "long",
+          "symbol": "PF_ADAUSD",
+          "eq": 11.9926101024828,
+          "price": 0.22061173671,
+          "reason": "leader_gave_up PF_NEARUSD r=5.0 -> PF_ADAUSD r=11.0"
         }
       ]
     },
@@ -12110,7 +12130,11 @@
           "eq": 10.2881
         },
         {
-          "t": "2026-09-05T19:13:35Z",
+          "t": "2026-09-05T19:13:27Z",
+          "eq": 10.2881
+        },
+        {
+          "t": "2026-09-05T19:35:39Z",
           "eq": 10.2881
         }
       ],
