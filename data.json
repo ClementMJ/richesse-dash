@@ -1,32 +1,21 @@
 {
-  "generated_at": "2026-09-08T20:37:25.903512+02:00",
+  "generated_at": "2026-09-08T20:44:44.647759+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 536,
+  "ticks": 537,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
-    "subtitle": "Vrai paper Kraken \u2014 XRP 10x",
+    "subtitle": "Vrai paper Kraken \u2014 cash",
     "kind": "temoin",
-    "equity": 39.2954224214699,
+    "equity": 39.34505217464988,
     "start": 50.0,
-    "pnl": -10.704577578530099,
-    "pnl_pct": -21.4091551570602,
-    "collateral": 41.1340280746499,
+    "pnl": -10.65494782535012,
+    "pnl_pct": -21.309895650700238,
+    "collateral": 39.34505217464988,
     "high_water": 83.16,
     "lock_trump": 72.94,
-    "position": {
-      "symbol": "PF_XRPUSD",
-      "side": "long",
-      "size": 186.0,
-      "entry": 1.4452,
-      "mark": 1.43531502337,
-      "leverage": 10.0,
-      "liq": 1.329584,
-      "u_pnl": -1.8386056531799975,
-      "stop": null,
-      "take_profit": null
-    },
-    "status": "active",
+    "position": null,
+    "status": "flat",
     "story": [
       {
         "t": "22 ao\u00fbt 17:25",
@@ -62,7 +51,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 39.30$ \u2014 long XRP @ 1.4452"
+        "e": "Stack 39.35$ \u2014 flat"
       }
     ],
     "orders": [],
@@ -2245,6 +2234,10 @@
       {
         "t": "2026-09-08T18:37:25Z",
         "eq": 39.2954
+      },
+      {
+        "t": "2026-09-08T18:44:44Z",
+        "eq": 39.3451
       }
     ]
   },
@@ -2254,10 +2247,10 @@
       "name": "Anti-martingale",
       "subtitle": "Residual 4h midcaps, size apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 17.55329887,
+      "equity": 17.77877414,
       "start": 50.0,
-      "pnl": -32.44670113,
-      "pnl_pct": -64.89340226,
+      "pnl": -32.221225860000004,
+      "pnl_pct": -64.44245172000001,
       "high_water": 64.15817808,
       "max_dd": 80.343645,
       "trades": 76,
@@ -2270,7 +2263,7 @@
         "side": "long",
         "size": 44.515642556694836,
         "entry": 2.39872566475,
-        "mark": 2.36314795716,
+        "mark": 2.36821303665,
         "leverage": 10,
         "stop": 2.278781648052959,
         "take_profit": null,
@@ -4539,8 +4532,12 @@
           "eq": 16.9787
         },
         {
-          "t": "2026-09-08T18:37:25Z",
+          "t": "2026-09-08T18:37:14Z",
           "eq": 17.5533
+        },
+        {
+          "t": "2026-09-08T18:44:44Z",
+          "eq": 17.7788
         }
       ],
       "fills": [
@@ -4911,10 +4908,10 @@
       "name": "Wick fade",
       "subtitle": "Fade m\u00e8che 1h, time-stop 6h sous l'eau / 12h max",
       "kind": "livre",
-      "equity": 15.8539797,
+      "equity": 16.11437783,
       "start": 50.0,
-      "pnl": -34.1460203,
-      "pnl_pct": -68.2920406,
+      "pnl": -33.885622170000005,
+      "pnl_pct": -67.77124434000001,
       "high_water": 67.76904654,
       "max_dd": 86.548327,
       "trades": 33,
@@ -4927,7 +4924,7 @@
         "side": "short",
         "size": 394.6516829425354,
         "entry": 0.22415182115,
-        "mark": 0.22415182115,
+        "mark": 0.22349200354,
         "leverage": 10,
         "stop": 0.232693994,
         "take_profit": 0.21488182114999999,
@@ -7192,8 +7189,12 @@
           "eq": 16.084
         },
         {
-          "t": "2026-09-08T18:37:25Z",
+          "t": "2026-09-08T18:37:14Z",
           "eq": 15.854
+        },
+        {
+          "t": "2026-09-08T18:44:44Z",
+          "eq": 16.1144
         }
       ],
       "fills": [
@@ -7564,10 +7565,10 @@
       "name": "Residual hold",
       "subtitle": "24h vs BTC, liquid, pas de meme, on ne rotate pas",
       "kind": "livre",
-      "equity": 14.92850535,
+      "equity": 14.96133588,
       "start": 50.0,
-      "pnl": -35.07149465,
-      "pnl_pct": -70.1429893,
+      "pnl": -35.03866412,
+      "pnl_pct": -70.07732823999999,
       "high_water": 53.71272299,
       "max_dd": 83.059973,
       "trades": 23,
@@ -7580,7 +7581,7 @@
         "side": "long",
         "size": 2.000402797902342,
         "entry": 55.21523253486,
-        "mark": 54.32689066552,
+        "mark": 54.34330262266,
         "leverage": 10,
         "stop": 54.19125949878359,
         "take_profit": null,
@@ -9849,8 +9850,12 @@
           "eq": 14.816
         },
         {
-          "t": "2026-09-08T18:37:25Z",
+          "t": "2026-09-08T18:37:14Z",
           "eq": 14.9285
+        },
+        {
+          "t": "2026-09-08T18:44:44Z",
+          "eq": 14.9613
         }
       ],
       "fills": [
@@ -12499,7 +12504,11 @@
           "eq": 8.9866
         },
         {
-          "t": "2026-09-08T18:37:25Z",
+          "t": "2026-09-08T18:37:14Z",
+          "eq": 8.9866
+        },
+        {
+          "t": "2026-09-08T18:44:44Z",
           "eq": 8.9866
         }
       ],
@@ -12871,25 +12880,25 @@
       "name": "Residual + gate BTC",
       "subtitle": "24h majors only, cash si BTC 4h casse",
       "kind": "livre",
-      "equity": 6.3077885,
+      "equity": 6.32751041,
       "start": 50.0,
-      "pnl": -43.6922115,
-      "pnl_pct": -87.384423,
+      "pnl": -43.67248959,
+      "pnl_pct": -87.34497918,
       "high_water": 54.47010216,
       "max_dd": 88.742605,
       "trades": 59,
       "fees": 39.28193696842591,
       "status": "active",
-      "last_reason": "trail r=3.4",
+      "last_reason": "trail r=3.5",
       "time_to_100": null,
       "position": {
         "symbol": "PF_XRPUSD",
         "side": "long",
         "size": 26.156899698039346,
         "entry": 1.42885931476,
-        "mark": 1.43558312302,
+        "mark": 1.43633710812,
         "leverage": 10,
-        "stop": 1.4025096042689504,
+        "stop": 1.4032635893689505,
         "take_profit": null,
         "margin": 3.737452977878655,
         "notional": 37.37452977878655
@@ -15156,8 +15165,12 @@
           "eq": 6.1319
         },
         {
-          "t": "2026-09-08T18:37:25Z",
+          "t": "2026-09-08T18:37:14Z",
           "eq": 6.3078
+        },
+        {
+          "t": "2026-09-08T18:44:44Z",
+          "eq": 6.3275
         }
       ],
       "fills": [
