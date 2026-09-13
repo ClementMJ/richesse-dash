@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-13T02:43:11.198364+02:00",
+  "generated_at": "2026-09-13T03:02:34.894601+02:00",
   "deadline": "2026-09-22T23:59:59+02:00",
-  "ticks": 720,
+  "ticks": 721,
   "temoin": {
     "id": "temoin",
     "name": "T\u00e9moin",
     "subtitle": "Vrai paper Kraken \u2014 HYPE 10x",
     "kind": "temoin",
-    "equity": 25.182372228937467,
+    "equity": 25.70530068067096,
     "start": 50.0,
-    "pnl": -24.817627771062533,
-    "pnl_pct": -49.635255542125066,
+    "pnl": -24.29469931932904,
+    "pnl_pct": -48.589398638658075,
     "collateral": 26.234027112718977,
     "high_water": 83.16,
     "lock_trump": 72.94,
@@ -19,10 +19,10 @@
       "side": "long",
       "size": 2.15,
       "entry": 79.665,
-      "mark": 79.1714705682,
+      "mark": 79.42142390804,
       "leverage": 10.0,
       "liq": 73.29180000000001,
-      "u_pnl": -1.0610882783700284,
+      "u_pnl": -0.5236885977140183,
       "stop": null,
       "take_profit": null
     },
@@ -62,7 +62,7 @@
       },
       {
         "t": "maintenant",
-        "e": "Stack 25.18$ \u2014 long HYPE @ 79.665"
+        "e": "Stack 25.71$ \u2014 long HYPE @ 79.665"
       }
     ],
     "orders": [],
@@ -2829,6 +2829,10 @@
       {
         "t": "2026-09-13T00:43:11Z",
         "eq": 25.1824
+      },
+      {
+        "t": "2026-09-13T01:02:34Z",
+        "eq": 25.7053
       }
     ]
   },
@@ -2838,35 +2842,30 @@
       "name": "Wick fade",
       "subtitle": "Fade m\u00e8che 1h, time-stop 6h sous l'eau / 12h max",
       "kind": "livre",
-      "equity": 13.37667814,
+      "equity": 13.18539164,
       "start": 50.0,
-      "pnl": -36.623321860000004,
-      "pnl_pct": -73.24664372000001,
+      "pnl": -36.81460836,
+      "pnl_pct": -73.62921672,
       "high_water": 67.76904654,
       "max_dd": 86.548327,
       "trades": 46,
-      "fees": 34.396409753213874,
+      "fees": 34.58769625064636,
       "status": "active",
-      "last_reason": "take_profit",
+      "last_reason": "star_liq_fade",
       "time_to_100": null,
-      "position": null,
+      "position": {
+        "symbol": "PF_UNIUSD",
+        "side": "short",
+        "size": 11.459043580234608,
+        "entry": 6.42040753808,
+        "mark": 6.42040753808,
+        "leverage": 10,
+        "stop": 6.5055583,
+        "take_profit": 6.24385753808,
+        "margin": 7.35717297817255,
+        "notional": 73.57172978172551
+      },
       "log": [
-        {
-          "ts": "2026-09-11T12:39:10Z",
-          "action": "open",
-          "symbol": "PF_SUIUSD",
-          "side": "long",
-          "size": 91.09780788118557,
-          "price": 0.73468296863,
-          "notional": 66.92800792983483,
-          "fee": 0.17401282061757056,
-          "pnl": 0.0,
-          "reason": "hammer_liq_fade",
-          "equity_after": 11.994715893897851,
-          "stop": 0.70787,
-          "take_profit": 0.75898296863,
-          "margin": 6.692800792983483
-        },
         {
           "ts": "2026-09-11T18:51:08Z",
           "action": "close",
@@ -2966,6 +2965,22 @@
           "pnl": 2.053877352253883,
           "reason": "take_profit",
           "equity_after": 13.376678142131908
+        },
+        {
+          "ts": "2026-09-13T01:02:31Z",
+          "action": "open",
+          "symbol": "PF_UNIUSD",
+          "side": "short",
+          "size": 11.459043580234608,
+          "price": 6.42040753808,
+          "notional": 73.57172978172551,
+          "fee": 0.19128649743248632,
+          "pnl": 0.0,
+          "reason": "star_liq_fade",
+          "equity_after": 13.185391644699422,
+          "stop": 6.5055583,
+          "take_profit": 6.24385753808,
+          "margin": 7.35717297817255
         }
       ],
       "tag": "WK",
@@ -5844,20 +5859,15 @@
           "eq": 13.3767
         },
         {
-          "t": "2026-09-13T00:43:11Z",
+          "t": "2026-09-13T00:43:01Z",
           "eq": 13.3767
+        },
+        {
+          "t": "2026-09-13T01:02:34Z",
+          "eq": 13.1854
         }
       ],
       "fills": [
-        {
-          "t": "2026-09-06T07:34:15Z",
-          "kind": "open",
-          "side": "short",
-          "symbol": "PF_ARBUSD",
-          "eq": 11.791270874119842,
-          "price": 0.19306330898,
-          "reason": "star_liq_fade"
-        },
         {
           "t": "2026-09-06T19:36:28Z",
           "kind": "close",
@@ -6208,6 +6218,15 @@
           "eq": 13.376678142131908,
           "price": 6.28823955372,
           "reason": "take_profit"
+        },
+        {
+          "t": "2026-09-13T01:02:31Z",
+          "kind": "open",
+          "side": "short",
+          "symbol": "PF_UNIUSD",
+          "eq": 13.185391644699422,
+          "price": 6.42040753808,
+          "reason": "star_liq_fade"
         }
       ]
     },
@@ -9230,7 +9249,11 @@
           "eq": 7.5605
         },
         {
-          "t": "2026-09-13T00:43:11Z",
+          "t": "2026-09-13T00:43:01Z",
+          "eq": 7.5605
+        },
+        {
+          "t": "2026-09-13T01:02:34Z",
           "eq": 7.5605
         }
       ],
@@ -9602,43 +9625,19 @@
       "name": "Anti-martingale",
       "subtitle": "Residual 4h midcaps, size apr\u00e8s les wins",
       "kind": "livre",
-      "equity": 6.1549272,
+      "equity": 6.17513199,
       "start": 50.0,
-      "pnl": -43.8450728,
-      "pnl_pct": -87.69014560000001,
+      "pnl": -43.82486801,
+      "pnl_pct": -87.64973602,
       "high_water": 64.15817808,
       "max_dd": 90.406637,
-      "trades": 108,
-      "fees": 78.68829151451548,
+      "trades": 109,
+      "fees": 78.77786928856776,
       "status": "active",
-      "last_reason": "residual PF_HYPEUSD r=7.8 btc=0.2 frac=0.55",
+      "last_reason": "residual_died r=-0.2",
       "time_to_100": null,
-      "position": {
-        "symbol": "PF_HYPEUSD",
-        "side": "long",
-        "size": 0.43379517020447056,
-        "entry": 79.169178929,
-        "mark": 79.169178929,
-        "leverage": 10,
-        "stop": 77.69669196141703,
-        "take_profit": null,
-        "margin": 3.4343207448453743,
-        "notional": 34.34320744845374
-      },
+      "position": null,
       "log": [
-        {
-          "ts": "2026-09-12T21:02:46Z",
-          "action": "close",
-          "symbol": "PF_HYPEUSD",
-          "side": "long",
-          "size": 0.6307935062167269,
-          "price": 79.92275587292,
-          "notional": 50.41475540358272,
-          "fee": 0.13107836404931505,
-          "pnl": -0.03574101377999731,
-          "reason": "residual_died r=-0.4",
-          "equity_after": 6.909223105394505
-        },
         {
           "ts": "2026-09-12T21:41:44Z",
           "action": "open",
@@ -9741,6 +9740,19 @@
           "stop": 77.69669196141703,
           "take_profit": null,
           "margin": 3.4343207448453743
+        },
+        {
+          "ts": "2026-09-13T01:02:31Z",
+          "action": "close",
+          "symbol": "PF_HYPEUSD",
+          "side": "long",
+          "size": 0.43379517020447056,
+          "price": 79.42225360385,
+          "notional": 34.452990020104735,
+          "fee": 0.08957777405227231,
+          "pnl": 0.10978257165099589,
+          "reason": "residual_died r=-0.2",
+          "equity_after": 6.175131994315242
         }
       ],
       "tag": "AM",
@@ -12623,20 +12635,15 @@
           "eq": 6.2442
         },
         {
-          "t": "2026-09-13T00:43:11Z",
+          "t": "2026-09-13T00:43:01Z",
           "eq": 6.1549
+        },
+        {
+          "t": "2026-09-13T01:02:34Z",
+          "eq": 6.1751
         }
       ],
       "fills": [
-        {
-          "t": "2026-09-10T02:17:03Z",
-          "kind": "close",
-          "side": "long",
-          "symbol": "PF_ZECUSD",
-          "eq": 16.621837328374475,
-          "price": 1215.8306410589,
-          "reason": "residual_died r=-0.6"
-        },
         {
           "t": "2026-09-10T02:38:14Z",
           "kind": "open",
@@ -12987,6 +12994,15 @@
           "eq": 6.154927196716519,
           "price": 79.169178929,
           "reason": "residual PF_HYPEUSD r=7.8 btc=0.2 frac=0.55"
+        },
+        {
+          "t": "2026-09-13T01:02:31Z",
+          "kind": "close",
+          "side": "long",
+          "symbol": "PF_HYPEUSD",
+          "eq": 6.175131994315242,
+          "price": 79.42225360385,
+          "reason": "residual_died r=-0.2"
         }
       ]
     },
@@ -16005,7 +16021,11 @@
           "eq": 5.6673
         },
         {
-          "t": "2026-09-13T00:43:11Z",
+          "t": "2026-09-13T00:43:01Z",
+          "eq": 5.6673
+        },
+        {
+          "t": "2026-09-13T01:02:34Z",
           "eq": 5.6673
         }
       ],
@@ -19387,7 +19407,11 @@
           "eq": 4.895
         },
         {
-          "t": "2026-09-13T00:43:11Z",
+          "t": "2026-09-13T00:43:01Z",
+          "eq": 4.895
+        },
+        {
+          "t": "2026-09-13T01:02:34Z",
           "eq": 4.895
         }
       ],
